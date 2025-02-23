@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://dju8jpflciirc"]
+
+[ext_resource type="Texture2D" uid="uid://crj4ci8aexxjt" path="res://assets/sonic advance 1 2 3/sunset hill zone/map/26.png" id="1_wfk57"]
+
+[node name="26" type="Node2D"]
+
+[node name="26" type="Sprite2D" parent="."]
+position = Vector2(0.5, 0.5)
+texture = ExtResource("1_wfk57")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-79, -35, -78, -35, -74, -21, -61, -6, -46, 1, -32, 3, 33, 3, 47, 1, 62, -6, 75, -21, 79, -35, 80, -35, 80, 36, -79, 36)

@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://difvhibqe05gi"]
+
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="1_tsoyf"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="2_oxrhe"]
+
+[sub_resource type="Resource" id="Resource_1ipcq"]
+script = ExtResource("2_oxrhe")
+duration = 1.0
+transition = 0
+ease = 2
+
+[node name="PhantomCamera" type="Node2D" node_paths=PackedStringArray("follow_target")]
+top_level = true
+position = Vector2(-59.0002, 425.001)
+script = ExtResource("1_tsoyf")
+follow_mode = 2
+follow_target = NodePath("")
+zoom = Vector2(0.8, 0.8)
+tween_resource = SubResource("Resource_1ipcq")
+follow_offset = Vector2(100, 0)
+follow_damping = true
+follow_damping_value = Vector2(0.4, 0.4)
+draw_limits = true

@@ -1,0 +1,787 @@
+[gd_scene load_steps=163 format=3 uid="uid://vrsayoueuck6"]
+
+[ext_resource type="Texture2D" uid="uid://ch6873y1h4n3d" path="res://assets/sonic battle/sonic/sonic idle/0.png" id="1_nar73"]
+[ext_resource type="Script" path="res://scenes/character scenes/sonic/sonic.gd" id="1_uhmdp"]
+[ext_resource type="Texture2D" uid="uid://b2f2o4wcq0swk" path="res://assets/sonic battle/sonic/sonic rocket air kick/0.png" id="2_m2igl"]
+[ext_resource type="Texture2D" uid="uid://dtlyhgfblayph" path="res://assets/sonic battle/sonic/sonic idle/1.png" id="2_mgyy1"]
+[ext_resource type="Texture2D" uid="uid://slq6gnvbxy8f" path="res://assets/sonic battle/sonic/sonic rocket air kick/1.png" id="3_78l7x"]
+[ext_resource type="Texture2D" uid="uid://fyj0bjv8qtaf" path="res://assets/sonic battle/sonic/sonic idle/2.png" id="3_hnjy2"]
+[ext_resource type="Texture2D" uid="uid://c5hmy5x7rdktf" path="res://assets/sonic battle/sonic/sonic idle/3.png" id="4_nygv0"]
+[ext_resource type="Texture2D" uid="uid://dxgq51ium1crk" path="res://assets/sonic battle/sonic/sonic rocket air kick/2.png" id="4_wv3k0"]
+[ext_resource type="Texture2D" uid="uid://btopktdhail0i" path="res://assets/sonic battle/sonic/sonic idle/4.png" id="5_dvb31"]
+[ext_resource type="Texture2D" uid="uid://d3osc60aswsns" path="res://assets/sonic battle/sonic/sonic rocket air kick/3.png" id="5_gjvmo"]
+[ext_resource type="Texture2D" uid="uid://bwd6ft3gc5rrd" path="res://assets/sonic battle/sonic/sonic rocket air kick/4.png" id="6_5lqjg"]
+[ext_resource type="Texture2D" uid="uid://dbxegul5a6mlb" path="res://assets/sonic battle/sonic/sonic idle/5.png" id="6_vg4dq"]
+[ext_resource type="Texture2D" uid="uid://b5js82w4ggqn6" path="res://assets/sonic battle/sonic/sonic rocket air kick/5.png" id="7_hcgwi"]
+[ext_resource type="Texture2D" uid="uid://drl8u36dr42m2" path="res://assets/sonic battle/sonic/sonic rocket air kick/6.png" id="8_drg3q"]
+[ext_resource type="Texture2D" uid="uid://cltvfloww36iy" path="res://assets/sonic advance 1 2 3/sonic/sonic walking/0.png" id="8_gcgkb"]
+[ext_resource type="Texture2D" uid="uid://drx5g7yngujxr" path="res://assets/sonic battle/sonic/sonic guarding/0.png" id="9_h3j68"]
+[ext_resource type="Texture2D" uid="uid://nyexqfou4b16" path="res://assets/sonic advance 1 2 3/sonic/sonic walking/1.png" id="9_tnxmn"]
+[ext_resource type="Texture2D" uid="uid://uumqqayl0bkd" path="res://assets/sonic advance 1 2 3/sonic/sonic walking/2.png" id="10_6v28k"]
+[ext_resource type="Texture2D" uid="uid://docfwqrnlxlhb" path="res://assets/sonic battle/sonic/sonic guarding/1.png" id="10_a7xq7"]
+[ext_resource type="Texture2D" uid="uid://cc8yg1efftcjc" path="res://assets/sonic advance 1 2 3/sonic/sonic walking/3.png" id="11_upu1m"]
+[ext_resource type="Texture2D" uid="uid://ttoqxnd5mlwj" path="res://assets/sonic battle/sonic/sonic guarding/2.png" id="11_vog4v"]
+[ext_resource type="Texture2D" uid="uid://nvm0y7ya54m6" path="res://assets/sonic advance 1 2 3/sonic/sonic bumped/0.png" id="12_aposh"]
+[ext_resource type="Texture2D" uid="uid://8uj1pxv4fn1k" path="res://assets/sonic advance 1 2 3/sonic/sonic walking/4.png" id="12_yo278"]
+[ext_resource type="Texture2D" uid="uid://bnxmgxtub24ou" path="res://assets/sonic advance 1 2 3/sonic/sonic walking/5.png" id="13_3qcc7"]
+[ext_resource type="Texture2D" uid="uid://dtg5qmctfge3c" path="res://assets/sonic advance 1 2 3/sonic/sonic bumped/1.png" id="13_66psu"]
+[ext_resource type="Texture2D" uid="uid://bb127uni2vu6q" path="res://assets/sonic advance 1 2 3/sonic/sonic walking/6.png" id="14_j0eqp"]
+[ext_resource type="Texture2D" uid="uid://dxnmhgt3niy6t" path="res://assets/sonic advance 1 2 3/sonic/sonic bumped/2.png" id="14_ph7hc"]
+[ext_resource type="Texture2D" uid="uid://mxu3eifqhaji" path="res://assets/sonic advance 1 2 3/sonic/sonic walking/7.png" id="15_swoov"]
+[ext_resource type="Texture2D" uid="uid://c85og4738mocl" path="res://assets/sonic battle/sonic/sonic dash/0.png" id="15_vtxi3"]
+[ext_resource type="Texture2D" uid="uid://bc7413fvni3wv" path="res://assets/sonic battle/sonic/sonic dash/1.png" id="16_hqq4i"]
+[ext_resource type="Texture2D" uid="uid://cngqkyewp6pf5" path="res://assets/sonic battle/sonic/sonic dash/2.png" id="17_p3d6g"]
+[ext_resource type="Texture2D" uid="uid://c4kt2akyf6my1" path="res://assets/sonic battle/sonic/sonic dash/3.png" id="18_3jcm4"]
+[ext_resource type="Texture2D" uid="uid://bwm1p6ouca6t1" path="res://assets/sonic battle/sonic/sonic dash/4.png" id="19_t046h"]
+[ext_resource type="Texture2D" uid="uid://c5f54vvnpvhbd" path="res://assets/sonic battle/sonic/sonic falling/0.png" id="20_ulq5g"]
+[ext_resource type="Texture2D" uid="uid://b4an1fyahf5yv" path="res://assets/sonic battle/sonic/sonic falling/1.png" id="21_on5y0"]
+[ext_resource type="Texture2D" uid="uid://bg8rm8g12klpd" path="res://assets/sonic battle/sonic/sonic falling/2.png" id="22_btlyy"]
+[ext_resource type="Texture2D" uid="uid://dfcfh72onaxkc" path="res://assets/sonic battle/sonic/sonic falling/3.png" id="23_j2him"]
+[ext_resource type="Texture2D" uid="uid://d3uhmrdt5u0lo" path="res://assets/sonic battle/sonic/sonic flare/0.png" id="24_ae4wk"]
+[ext_resource type="Texture2D" uid="uid://b0tagc0x0m31o" path="res://assets/sonic battle/sonic/sonic flare/1.png" id="25_2hgdo"]
+[ext_resource type="Texture2D" uid="uid://b1gpuy1krr0s0" path="res://assets/sonic battle/sonic/sonic flare/2.png" id="26_kxcs1"]
+[ext_resource type="Texture2D" uid="uid://bw0dp2kxsbliw" path="res://assets/sonic battle/sonic/sonic flare/3.png" id="27_hfmck"]
+[ext_resource type="Texture2D" uid="uid://ltmvh68l3oxm" path="res://assets/sonic battle/sonic/sonic flare/4.png" id="28_bx8gl"]
+[ext_resource type="Texture2D" uid="uid://cj5q4qtbhpqee" path="res://assets/sonic battle/sonic/sonic flare/5.png" id="29_mgbpj"]
+[ext_resource type="Texture2D" uid="uid://1t5fn5xoedq" path="res://assets/sonic battle/sonic/sonic flare/6.png" id="30_4vdvo"]
+[ext_resource type="Texture2D" uid="uid://qia0bpv0ias5" path="res://assets/sonic battle/sonic/sonic flare/7.png" id="31_mo5mq"]
+[ext_resource type="Texture2D" uid="uid://cbtj2oqfntxnt" path="res://assets/sonic battle/sonic/sonic flare/8.png" id="32_jxw8m"]
+[ext_resource type="Texture2D" uid="uid://cf7l85eg5go1m" path="res://assets/sonic battle/sonic/sonic flare/9.png" id="33_8d0lo"]
+[ext_resource type="Texture2D" uid="uid://canqx2cuplmjh" path="res://assets/sonic battle/sonic/sonic flare/10.png" id="34_ed322"]
+[ext_resource type="Texture2D" uid="uid://kou85aeih1wb" path="res://assets/sonic battle/sonic/sonic flare/11.png" id="35_7ef01"]
+[ext_resource type="Texture2D" uid="uid://bkf4dfl3x7auj" path="res://assets/sonic battle/sonic/sonic flare/12.png" id="36_ss70s"]
+[ext_resource type="Texture2D" uid="uid://ljqegfclevux" path="res://assets/sonic battle/sonic/sonic flare/13.png" id="37_v5iw3"]
+[ext_resource type="Texture2D" uid="uid://cjx4cy2l7ou6" path="res://assets/sonic battle/sonic/sonic flare/14.png" id="38_o7h5r"]
+[ext_resource type="Texture2D" uid="uid://cn1gwtk1w57yy" path="res://assets/sonic battle/sonic/sonic flare/15.png" id="39_87sy2"]
+[ext_resource type="Texture2D" uid="uid://mo3gkp6io6jo" path="res://assets/sonic battle/sonic/sonic frontflip down kick/0.png" id="40_isvaw"]
+[ext_resource type="Texture2D" uid="uid://5w1oxwgumwh8" path="res://assets/sonic battle/sonic/sonic frontflip down kick/1.png" id="41_4tyy5"]
+[ext_resource type="Texture2D" uid="uid://ccfn1x3vlxlsi" path="res://assets/sonic battle/sonic/sonic frontflip down kick/2.png" id="42_odrir"]
+[ext_resource type="Texture2D" uid="uid://6ah3urpeuug3" path="res://assets/sonic battle/sonic/sonic frontflip down kick/3.png" id="43_5r1en"]
+[ext_resource type="Texture2D" uid="uid://duhqilykvcgwn" path="res://assets/sonic battle/sonic/sonic frontflip down kick/4.png" id="44_qejgh"]
+[ext_resource type="Texture2D" uid="uid://c37uh58rokb3r" path="res://assets/sonic battle/sonic/sonic frontflip down kick/5.png" id="45_sfs1t"]
+[ext_resource type="Texture2D" uid="uid://c5so7jkf4uifm" path="res://assets/sonic battle/sonic/sonic frontflip down kick/6.png" id="46_jsrmg"]
+[ext_resource type="Texture2D" uid="uid://d2twgcnpelmhx" path="res://assets/sonic battle/sonic/sonic frontflip down kick/7.png" id="47_2iv22"]
+[ext_resource type="Texture2D" uid="uid://c6b6u5icxj5pk" path="res://assets/sonic battle/sonic/sonic frontflip down kick/8.png" id="48_e3sph"]
+[ext_resource type="Texture2D" uid="uid://duhcoyjf1mtm2" path="res://assets/sonic battle/sonic/sonic get up/0.png" id="49_oy4s4"]
+[ext_resource type="Texture2D" uid="uid://b3277tm6yxio7" path="res://assets/sonic battle/sonic/sonic get up/1.png" id="50_qiepp"]
+[ext_resource type="Texture2D" uid="uid://bjfq657pyp7pm" path="res://assets/sonic battle/sonic/sonic get up/2.png" id="51_7iook"]
+[ext_resource type="Texture2D" uid="uid://cn2cgataivx47" path="res://assets/sonic battle/sonic/sonic get up/3.png" id="52_88fwl"]
+[ext_resource type="Texture2D" uid="uid://bdye87q00m5un" path="res://assets/sonic battle/sonic/sonic get up/4.png" id="53_ras13"]
+[ext_resource type="Texture2D" uid="uid://bm50h5ccy5rps" path="res://assets/sonic battle/sonic/sonic get up/5.png" id="54_4if7m"]
+[ext_resource type="Texture2D" uid="uid://b1njis1lv0884" path="res://assets/sonic battle/sonic/sonic get up/6.png" id="55_ir48u"]
+[ext_resource type="Texture2D" uid="uid://cqa3s0tas3dkx" path="res://assets/sonic battle/sonic/sonic get up/7.png" id="56_tav2y"]
+[ext_resource type="Texture2D" uid="uid://clj3cmgf4dthk" path="res://assets/sonic battle/sonic/sonic healing/0.png" id="57_ge7do"]
+[ext_resource type="Texture2D" uid="uid://dksfcwpp812qe" path="res://assets/sonic battle/sonic/sonic healing/1.png" id="58_c3308"]
+[ext_resource type="Texture2D" uid="uid://cvas48qm6uqfw" path="res://assets/sonic battle/sonic/sonic healing/2.png" id="59_rahjj"]
+[ext_resource type="Texture2D" uid="uid://duaa2btlo3clw" path="res://assets/sonic battle/sonic/sonic healing/3.png" id="60_cpnd0"]
+[ext_resource type="Texture2D" uid="uid://byccoocnnvjlr" path="res://assets/sonic battle/sonic/sonic healing/4.png" id="61_i0yc7"]
+[ext_resource type="Texture2D" uid="uid://bq6i8oakojau8" path="res://assets/sonic battle/sonic/sonic hit/0.png" id="62_d57ul"]
+[ext_resource type="Texture2D" uid="uid://ba08yssm7kb6q" path="res://assets/sonic battle/sonic/sonic hit/1.png" id="63_b44yd"]
+[ext_resource type="Texture2D" uid="uid://ckmr0gxalcu2" path="res://assets/sonic battle/sonic/sonic hit/2.png" id="64_kboiy"]
+[ext_resource type="Texture2D" uid="uid://bk3nxu8cdhkhd" path="res://assets/sonic battle/sonic/sonic knocked back/0.png" id="65_xihel"]
+[ext_resource type="Texture2D" uid="uid://cuoq4huu0fqmw" path="res://assets/sonic battle/sonic/sonic knocked back/1.png" id="66_m8t4q"]
+[ext_resource type="Texture2D" uid="uid://dir2qysef7g2" path="res://assets/sonic battle/sonic/sonic knocked back/2.png" id="67_pcjxn"]
+[ext_resource type="Texture2D" uid="uid://bqj032mpctvid" path="res://assets/sonic battle/sonic/sonic knocked back/3.png" id="68_25s8k"]
+[ext_resource type="Texture2D" uid="uid://b1fdpek4eas81" path="res://assets/sonic battle/sonic/sonic knocked back/4.png" id="69_o32yi"]
+[ext_resource type="Texture2D" uid="uid://do235tl5jdomg" path="res://assets/sonic battle/sonic/sonic knocked back/5.png" id="70_xgak4"]
+[ext_resource type="Texture2D" uid="uid://cnxagcvyrpmog" path="res://assets/sonic battle/sonic/sonic knocked back/6.png" id="71_xp6an"]
+[ext_resource type="Texture2D" uid="uid://d2i1lr5rbohy2" path="res://assets/sonic battle/sonic/sonic knocked back/7.png" id="72_vwp50"]
+[ext_resource type="Texture2D" uid="uid://dv3gucl05tiam" path="res://assets/sonic battle/sonic/sonic hit ground/0.png" id="73_kesbg"]
+[ext_resource type="Texture2D" uid="uid://claomtfji4bl6" path="res://assets/sonic battle/sonic/sonic hit ground/1.png" id="74_t8wog"]
+[ext_resource type="Texture2D" uid="uid://loglvjxnhdrd" path="res://assets/sonic battle/sonic/sonic hit ground/2.png" id="75_sui3p"]
+[ext_resource type="Texture2D" uid="uid://1x3ou5grymho" path="res://assets/sonic battle/sonic/sonic hit ground/3.png" id="76_3xd80"]
+[ext_resource type="Texture2D" uid="uid://x6qpocmbegff" path="res://assets/sonic battle/sonic/sonic hit ground/4.png" id="77_outqe"]
+[ext_resource type="Texture2D" uid="uid://cx1vx0k2pwulo" path="res://assets/sonic battle/sonic/sonic hit ground/5.png" id="78_q2h50"]
+[ext_resource type="Texture2D" uid="uid://ta1c5st3aph7" path="res://assets/sonic battle/sonic/sonic knocked up/0.png" id="79_1akri"]
+[ext_resource type="Texture2D" uid="uid://bray500p7aqes" path="res://assets/sonic battle/sonic/sonic knocked up/1.png" id="80_l4p3b"]
+[ext_resource type="Texture2D" uid="uid://7k4xhue1xemd" path="res://assets/sonic battle/sonic/sonic knocked up/2.png" id="81_60qc3"]
+[ext_resource type="Texture2D" uid="uid://b6ux0ss8jijr7" path="res://assets/sonic battle/sonic/sonic knocked up/3.png" id="82_210hh"]
+[ext_resource type="Texture2D" uid="uid://d24g8sunj7etq" path="res://assets/sonic battle/sonic/sonic hit wall/0.png" id="83_agrfl"]
+[ext_resource type="Texture2D" uid="uid://bdbcfixph4dfl" path="res://assets/sonic battle/sonic/sonic hit wall/1.png" id="84_o67k3"]
+[ext_resource type="Texture2D" uid="uid://dk8jc507k4gve" path="res://assets/sonic battle/sonic/sonic hit wall/2.png" id="85_glwkb"]
+[ext_resource type="Texture2D" uid="uid://bosyqavjrpx2m" path="res://assets/sonic battle/sonic/sonic hit wall/3.png" id="86_67tyn"]
+[ext_resource type="Texture2D" uid="uid://nwxskxq1j8x3" path="res://assets/sonic battle/sonic/sonic hit wall/4.png" id="87_kg750"]
+[ext_resource type="Texture2D" uid="uid://db8w56v7m26so" path="res://assets/sonic battle/sonic/sonic hit wall/5.png" id="88_ci8c7"]
+[ext_resource type="Texture2D" uid="uid://esl60ud0vath" path="res://assets/sonic battle/sonic/sonic hit wall/6.png" id="89_4qkpq"]
+[ext_resource type="Texture2D" uid="uid://l5w3rfddsk1q" path="res://assets/sonic battle/sonic/sonic jumping/0.png" id="96_3t2jg"]
+[ext_resource type="Texture2D" uid="uid://b7jiinijrjrwo" path="res://assets/sonic battle/sonic/sonic jumping/1.png" id="97_s6nod"]
+[ext_resource type="Texture2D" uid="uid://yd0y3r64xf5l" path="res://assets/sonic battle/sonic/sonic jumping/2.png" id="98_fvfec"]
+[ext_resource type="Texture2D" uid="uid://dq68r825f2qqx" path="res://assets/sonic battle/sonic/sonic jumping/3.png" id="99_jsjkf"]
+[ext_resource type="Texture2D" uid="uid://3ap5kdowybbk" path="res://assets/sonic battle/sonic/sonic jumping/4.png" id="100_4agsg"]
+[ext_resource type="Texture2D" uid="uid://61lhacp6b55x" path="res://assets/sonic battle/sonic/sonic kick/0.png" id="101_m7ys3"]
+[ext_resource type="Texture2D" uid="uid://b7wqjh5lqmdg2" path="res://assets/sonic battle/sonic/sonic kick/1.png" id="102_hi1t2"]
+[ext_resource type="Texture2D" uid="uid://do13d0cjeh88y" path="res://assets/sonic battle/sonic/sonic kick/2.png" id="103_w8osc"]
+[ext_resource type="Texture2D" uid="uid://c6wm5087sucnx" path="res://assets/sonic battle/sonic/sonic kick/3.png" id="104_m4ja5"]
+[ext_resource type="Texture2D" uid="uid://cx5icevfcj24e" path="res://assets/sonic battle/sonic/sonic kick/4.png" id="105_nja58"]
+[ext_resource type="Texture2D" uid="uid://bw8qie86336j" path="res://assets/sonic battle/sonic/sonic kick/5.png" id="106_e8obf"]
+[ext_resource type="Texture2D" uid="uid://c8m7e0ih5ll0p" path="res://assets/sonic battle/sonic/sonic landing/0.png" id="107_necuh"]
+[ext_resource type="Texture2D" uid="uid://ccv73myhuo45b" path="res://assets/sonic battle/sonic/sonic landing/1.png" id="108_ba11f"]
+[ext_resource type="Texture2D" uid="uid://d0737vxdhm87y" path="res://assets/sonic battle/sonic/sonic landing/2.png" id="109_4r6db"]
+[ext_resource type="Texture2D" uid="uid://dcg3xhalq2u6q" path="res://assets/sonic battle/sonic/sonic leap (dash)/0.png" id="110_lkfe8"]
+[ext_resource type="Texture2D" uid="uid://cjlj0vtn61mkp" path="res://assets/sonic battle/sonic/sonic leap (dash)/1.png" id="111_q6cdb"]
+[ext_resource type="Texture2D" uid="uid://df0vs5wf1cl4t" path="res://assets/sonic battle/sonic/sonic leap (dash)/2.png" id="112_mep7l"]
+[ext_resource type="Texture2D" uid="uid://bjr74e5hk4yr6" path="res://assets/sonic battle/sonic/sonic leap (dash)/3.png" id="113_ghl04"]
+[ext_resource type="Texture2D" uid="uid://c3hfq65p1tnrl" path="res://assets/sonic battle/sonic/sonic leap (dash)/4.png" id="114_p8nxy"]
+[ext_resource type="Texture2D" uid="uid://f4kryq6ajjhl" path="res://assets/sonic battle/sonic/sonic leap (dash)/5.png" id="115_4j51r"]
+[ext_resource type="Texture2D" uid="uid://b3ocrayh08uy7" path="res://assets/sonic battle/sonic/sonic leap (dash)/6.png" id="116_74eso"]
+[ext_resource type="Texture2D" uid="uid://d3blii4og3m7n" path="res://assets/sonic battle/sonic/sonic punch/0.png" id="117_783lo"]
+[ext_resource type="Texture2D" uid="uid://cqc6s4ajjwb0v" path="res://assets/sonic battle/sonic/sonic punch/1.png" id="118_vip21"]
+[ext_resource type="Texture2D" uid="uid://bkj7dqh0leriu" path="res://assets/sonic battle/sonic/sonic punch/2.png" id="119_jj77n"]
+[ext_resource type="Texture2D" uid="uid://bydrl7jms7368" path="res://assets/sonic battle/sonic/sonic punch/3.png" id="120_7k1oj"]
+[ext_resource type="Texture2D" uid="uid://32bpnxxoylol" path="res://assets/sonic battle/sonic/sonic punch/4.png" id="121_hljhy"]
+[ext_resource type="Texture2D" uid="uid://qx88r5yif8jt" path="res://assets/sonic battle/sonic/sonic punch/5.png" id="122_itm60"]
+[ext_resource type="Texture2D" uid="uid://byjig3b6oa26w" path="res://assets/sonic battle/sonic/sonic running/1.png" id="123_swox2"]
+[ext_resource type="Texture2D" uid="uid://dfleptehs6qxr" path="res://assets/sonic battle/sonic/sonic running/2.png" id="124_jhwst"]
+[ext_resource type="Texture2D" uid="uid://btogkml2lyom7" path="res://assets/sonic battle/sonic/sonic running/3.png" id="125_85qik"]
+[ext_resource type="Texture2D" uid="uid://bnqfwtwyrfgto" path="res://assets/sonic battle/sonic/sonic running/4.png" id="126_xfmve"]
+[ext_resource type="Texture2D" uid="uid://p4k08ipvguqx" path="res://assets/sonic battle/sonic/sonic running/5.png" id="127_q0x47"]
+[ext_resource type="Texture2D" uid="uid://ci1v8ehq02g47" path="res://assets/sonic battle/sonic/sonic running/6.png" id="128_mvf51"]
+[ext_resource type="Texture2D" uid="uid://c70rqscyanhps" path="res://assets/sonic battle/sonic/sonic running/7.png" id="129_kvrfw"]
+[ext_resource type="Texture2D" uid="uid://dy1s2gym7egbm" path="res://assets/sonic battle/sonic/sonic running/8.png" id="130_j6v1m"]
+[ext_resource type="Texture2D" uid="uid://d4h3yivxqgq3" path="res://assets/sonic battle/sonic/sonic running turning around/0.png" id="132_2av2x"]
+[ext_resource type="Texture2D" uid="uid://dj0tj8xm6aqr4" path="res://assets/sonic battle/sonic/sonic running turning around/1.png" id="133_s57mx"]
+[ext_resource type="Texture2D" uid="uid://cn6jlnvrq8u4m" path="res://assets/sonic battle/sonic/sonic running turning around/2.png" id="134_d0123"]
+[ext_resource type="Texture2D" uid="uid://bd0ogiptrkpth" path="res://assets/sonic battle/sonic/sonic running turning around/3.png" id="135_khirg"]
+[ext_resource type="Texture2D" uid="uid://b8te1lh78h2lg" path="res://assets/sonic battle/sonic/sonic shock/0.png" id="136_jkl5n"]
+[ext_resource type="Texture2D" uid="uid://bdhehtq5oyujj" path="res://assets/sonic battle/sonic/sonic shock/1.png" id="137_ufh5a"]
+[ext_resource type="Texture2D" uid="uid://eig0ft0v52y6" path="res://assets/sonic battle/sonic/sonic shock/2.png" id="138_mu4qm"]
+[ext_resource type="Texture2D" uid="uid://dpppayfvsc32f" path="res://assets/sonic battle/sonic/sonic spin kick/0.png" id="139_d868k"]
+[ext_resource type="Texture2D" uid="uid://dp06iqgcm83jf" path="res://assets/sonic battle/sonic/sonic spin kick/1.png" id="140_e1y8q"]
+[ext_resource type="Texture2D" uid="uid://tmnsly7kahdl" path="res://assets/sonic battle/sonic/sonic spin kick/2.png" id="141_lba3v"]
+[ext_resource type="Texture2D" uid="uid://c7ap8hrg7vgym" path="res://assets/sonic battle/sonic/sonic spin kick/3.png" id="142_i3ltd"]
+[ext_resource type="Texture2D" uid="uid://b8t0q2cw5beig" path="res://assets/sonic battle/sonic/sonic spin kick/4.png" id="143_10fud"]
+[ext_resource type="Texture2D" uid="uid://dkrrcfsoapbts" path="res://assets/sonic battle/sonic/sonic spin kick/5.png" id="144_3rs6t"]
+[ext_resource type="Texture2D" uid="uid://bpirtt3oluuy0" path="res://assets/sonic battle/sonic/sonic spin kick/6.png" id="145_k1rt1"]
+[ext_resource type="Texture2D" uid="uid://b210f3l1cc2tu" path="res://assets/sonic battle/sonic/sonic spin kick/7.png" id="146_l60ey"]
+[ext_resource type="Texture2D" uid="uid://ue8uof1s56b6" path="res://assets/sonic battle/sonic/sonic spin kick/8.png" id="147_c8y6f"]
+[ext_resource type="Texture2D" uid="uid://ir03k6dxeubc" path="res://assets/sonic battle/sonic/sonic spin kick/9.png" id="148_n7nke"]
+[ext_resource type="Texture2D" uid="uid://s84ul16xswrd" path="res://assets/sonic battle/sonic/sonic stopping/0.png" id="149_baseu"]
+[ext_resource type="Texture2D" uid="uid://0u8t7nx5j45o" path="res://assets/sonic battle/sonic/sonic stopping/1.png" id="150_dajtp"]
+[ext_resource type="Texture2D" uid="uid://b45pkemugknft" path="res://assets/sonic battle/sonic/sonic stopping/2.png" id="151_b2ffq"]
+[ext_resource type="Texture2D" uid="uid://b0fukptc5dyna" path="res://assets/sonic battle/sonic/sonic stopping/3.png" id="152_c6cqo"]
+[ext_resource type="PackedScene" uid="uid://ba32q4eh6d7h0" path="res://scenes/utility scenes/timers/Double Tap Dash Timer.tscn" id="160_a3u2j"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4hnk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_m2igl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_78l7x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_wv3k0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_gjvmo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5lqjg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_hcgwi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_drg3q")
+}],
+"loop": true,
+"name": &"air kick",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_h3j68")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_a7xq7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_vog4v")
+}],
+"loop": false,
+"name": &"blocking",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_aposh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_66psu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_ph7hc")
+}],
+"loop": false,
+"name": &"bumped",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_vtxi3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_hqq4i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_p3d6g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_3jcm4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_t046h")
+}],
+"loop": false,
+"name": &"dash forward",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("20_ulq5g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_on5y0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_btlyy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_j2him")
+}],
+"loop": false,
+"name": &"falling",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("24_ae4wk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_2hgdo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_kxcs1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_hfmck")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_bx8gl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_mgbpj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_4vdvo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_mo5mq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_jxw8m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_8d0lo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_ed322")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_7ef01")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_ss70s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_v5iw3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_o7h5r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_87sy2")
+}],
+"loop": true,
+"name": &"flare",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("40_isvaw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_4tyy5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_odrir")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_5r1en")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_qejgh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_sfs1t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_jsrmg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_2iv22")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_e3sph")
+}],
+"loop": true,
+"name": &"frontflip kick",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("49_oy4s4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_qiepp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_7iook")
+}, {
+"duration": 1.0,
+"texture": ExtResource("52_88fwl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("53_ras13")
+}, {
+"duration": 1.0,
+"texture": ExtResource("54_4if7m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("55_ir48u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("56_tav2y")
+}],
+"loop": false,
+"name": &"get up",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("57_ge7do")
+}, {
+"duration": 1.0,
+"texture": ExtResource("58_c3308")
+}, {
+"duration": 1.0,
+"texture": ExtResource("59_rahjj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("60_cpnd0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("61_i0yc7")
+}],
+"loop": false,
+"name": &"healing",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("62_d57ul")
+}, {
+"duration": 1.0,
+"texture": ExtResource("63_b44yd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("64_kboiy")
+}],
+"loop": false,
+"name": &"hit",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("65_xihel")
+}, {
+"duration": 1.0,
+"texture": ExtResource("66_m8t4q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("67_pcjxn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("68_25s8k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("69_o32yi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("70_xgak4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("71_xp6an")
+}, {
+"duration": 1.0,
+"texture": ExtResource("72_vwp50")
+}],
+"loop": true,
+"name": &"hit back",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("73_kesbg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("74_t8wog")
+}, {
+"duration": 1.0,
+"texture": ExtResource("75_sui3p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("76_3xd80")
+}, {
+"duration": 1.0,
+"texture": ExtResource("77_outqe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("78_q2h50")
+}],
+"loop": true,
+"name": &"hit ground",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("79_1akri")
+}, {
+"duration": 1.0,
+"texture": ExtResource("80_l4p3b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("81_60qc3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("82_210hh")
+}],
+"loop": true,
+"name": &"hit up",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("83_agrfl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("84_o67k3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("85_glwkb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("86_67tyn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("87_kg750")
+}, {
+"duration": 1.0,
+"texture": ExtResource("88_ci8c7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("89_4qkpq")
+}],
+"loop": true,
+"name": &"hit wall",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_nar73")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_mgyy1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_hnjy2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_nygv0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_dvb31")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_vg4dq")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("96_3t2jg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("97_s6nod")
+}, {
+"duration": 1.0,
+"texture": ExtResource("98_fvfec")
+}, {
+"duration": 1.0,
+"texture": ExtResource("99_jsjkf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("100_4agsg")
+}],
+"loop": false,
+"name": &"jump",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("101_m7ys3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("102_hi1t2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("103_w8osc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("104_m4ja5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("105_nja58")
+}, {
+"duration": 1.0,
+"texture": ExtResource("106_e8obf")
+}],
+"loop": true,
+"name": &"kick",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("107_necuh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("108_ba11f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("109_4r6db")
+}],
+"loop": false,
+"name": &"landing",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("110_lkfe8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("111_q6cdb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("112_mep7l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("113_ghl04")
+}, {
+"duration": 1.0,
+"texture": ExtResource("114_p8nxy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("115_4j51r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("116_74eso")
+}],
+"loop": true,
+"name": &"leap",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("117_783lo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("118_vip21")
+}, {
+"duration": 1.0,
+"texture": ExtResource("119_jj77n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("120_7k1oj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("121_hljhy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("122_itm60")
+}],
+"loop": true,
+"name": &"punch",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("123_swox2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("124_jhwst")
+}, {
+"duration": 1.0,
+"texture": ExtResource("125_85qik")
+}, {
+"duration": 1.0,
+"texture": ExtResource("126_xfmve")
+}, {
+"duration": 1.0,
+"texture": ExtResource("127_q0x47")
+}, {
+"duration": 1.0,
+"texture": ExtResource("128_mvf51")
+}, {
+"duration": 1.0,
+"texture": ExtResource("129_kvrfw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("130_j6v1m")
+}],
+"loop": true,
+"name": &"run",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("132_2av2x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("133_s57mx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("134_d0123")
+}, {
+"duration": 1.0,
+"texture": ExtResource("135_khirg")
+}],
+"loop": true,
+"name": &"run turn",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("136_jkl5n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("137_ufh5a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("138_mu4qm")
+}],
+"loop": true,
+"name": &"shock",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 0.7,
+"texture": ExtResource("139_d868k")
+}, {
+"duration": 0.7,
+"texture": ExtResource("140_e1y8q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("141_lba3v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("142_i3ltd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("143_10fud")
+}, {
+"duration": 1.0,
+"texture": ExtResource("144_3rs6t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("145_k1rt1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("146_l60ey")
+}, {
+"duration": 0.5,
+"texture": ExtResource("147_c8y6f")
+}, {
+"duration": 0.5,
+"texture": ExtResource("148_n7nke")
+}],
+"loop": false,
+"name": &"spin kick",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("149_baseu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("150_dajtp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("151_b2ffq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("152_c6cqo")
+}],
+"loop": false,
+"name": &"stopping",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_gcgkb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_tnxmn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_6v28k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_upu1m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_yo278")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_3qcc7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_j0eqp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_swoov")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 7.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_32if1"]
+radius = 13.0
+height = 32.0
+
+[node name="Sonic" type="CharacterBody2D"]
+collision_layer = 4
+script = ExtResource("1_uhmdp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_g4hnk")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="DefaultCollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_32if1")
+
+[node name="Double Tap Dash Timer" parent="." instance=ExtResource("160_a3u2j")]
