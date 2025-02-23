@@ -6,4 +6,5 @@ This project is non-commercial and is not affiliated with or endorsed by SEGA in
  
 # Sprites:
 Sunset Hill Zone: Shadowbot
+
 Sonic & Tails: QuadFactor
