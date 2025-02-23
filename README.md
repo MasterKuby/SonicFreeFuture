@@ -8,3 +8,6 @@ This project is non-commercial and is not affiliated with or endorsed by SEGA in
 Sunset Hill Zone: Shadowbot
 
 Sonic & Tails: QuadFactor
+
+# More
+I'm no pro, so code is prolly really bad and I've only BARELY used composition.
