@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://b28oqw65ei1rs"]
+
+[sub_resource type="GDScript" id="GDScript_sd7xs"]
+script/source = "extends Node2D
+@export var phantomCamera: Node2D
+@export var sonic: Node2D
+@export var tails: Node2D
+@export var knuckles: Node2D
+@export var shadow: Node2D
+@export var amy: Node2D
+@export var cream: Node2D
+@export var test: Node2D
+
+
+
+func _process(delta):
+	if GV.activeCharacter == \"sonic\":
+		phantomCamera.set_follow_target(sonic)
+	if GV.activeCharacter == \"tails\":
+		phantomCamera.set_follow_target(tails)
+"
+
+[node name="CameraController" type="Node2D"]
+script = SubResource("GDScript_sd7xs")

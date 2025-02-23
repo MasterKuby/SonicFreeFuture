@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdw1dbg4ydcjl"]
+
+[ext_resource type="Texture2D" uid="uid://c0liid1kyqsh2" path="res://assets/sonic advance 1 2 3/sunset hill zone/map/1.png" id="1_mdgcp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jkl2y"]
+size = Vector2(192, 25)
+
+[node name="1" type="Node2D"]
+
+[node name="1" type="Sprite2D" parent="."]
+texture = ExtResource("1_mdgcp")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_jkl2y")
