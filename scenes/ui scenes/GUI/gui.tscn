@@ -14,6 +14,7 @@ func _process(delta):
 [node name="Pause Menu" parent="." instance=ExtResource("1_x6kq6")]
 
 [node name="FPS Counter" type="Label" parent="."]
+process_mode = 3
 offset_right = 40.0
 offset_bottom = 23.0
 text = "FPS:"

@@ -1,19 +1,35 @@
-[gd_scene load_steps=8 format=3 uid="uid://w6ornk46pr7b"]
+[gd_scene load_steps=13 format=3 uid="uid://w6ornk46pr7b"]
 
 [ext_resource type="Shader" path="res://scenes/ui scenes/pause menu/pause_menu.gdshader" id="1_8nvtu"]
 [ext_resource type="Script" path="res://scenes/ui scenes/pause menu/pause_menu.gd" id="1_cwv66"]
+[ext_resource type="StyleBox" uid="uid://c1lvkim3hx1ac" path="res://scenes/ui scenes/pause menu/button-disabled.tres" id="3_cptoo"]
 [ext_resource type="AudioStream" uid="uid://cfbvibujdsmi1" path="res://assets/sounds/ui/main menu/hoverSFX.ogg" id="3_r0q0j"]
+[ext_resource type="StyleBox" uid="uid://dtkarbbpp4oxb" path="res://scenes/ui scenes/pause menu/button-focused.tres" id="3_x1ecj"]
+[ext_resource type="StyleBox" uid="uid://ccklq6jjabqq2" path="res://scenes/ui scenes/pause menu/button.tres" id="4_j4rqu"]
+[ext_resource type="StyleBox" uid="uid://bnmk0ug8dy1dk" path="res://scenes/ui scenes/pause menu/button-hover.tres" id="6_q6s1y"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mntfi"]
 shader = ExtResource("1_8nvtu")
 shader_parameter/lod = 0.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2vkx5"]
+bg_color = Color(0.278431, 0.447059, 0.811765, 0.392157)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
 
 [sub_resource type="Animation" id="Animation_ubgno"]
 length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:material:shader_parameter/lod")
+tracks/0/path = NodePath("Blur:material:shader_parameter/lod")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -41,7 +57,7 @@ length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:material:shader_parameter/lod")
+tracks/0/path = NodePath("Blur:material:shader_parameter/lod")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -81,7 +97,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_cwv66")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Blur" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_mntfi")
 layout_mode = 1
 anchors_preset = 8
@@ -110,31 +126,43 @@ offset_right = 256.0
 offset_bottom = 256.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2vkx5")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme_override_constants/separation = 75
 alignment = 1
 
 [node name="Resume" type="Button" parent="PanelContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 50)
+custom_minimum_size = Vector2(325, 0)
 layout_mode = 2
-tooltip_text = "Resume the game"
 theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = ExtResource("3_x1ecj")
+theme_override_styles/disabled = ExtResource("3_cptoo")
+theme_override_styles/hover = ExtResource("6_q6s1y")
+theme_override_styles/normal = ExtResource("4_j4rqu")
 text = "Resume"
 
 [node name="Restart" type="Button" parent="PanelContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 50)
+custom_minimum_size = Vector2(325, 0)
 layout_mode = 2
-tooltip_text = "Restart the level/battle"
 theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = ExtResource("3_x1ecj")
+theme_override_styles/disabled = ExtResource("3_cptoo")
+theme_override_styles/hover = ExtResource("6_q6s1y")
+theme_override_styles/normal = ExtResource("4_j4rqu")
 text = "Restart"
 
 [node name="Main Menu" type="Button" parent="PanelContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 50)
+custom_minimum_size = Vector2(325, 0)
 layout_mode = 2
-tooltip_text = "Return to Main Menu"
 theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = ExtResource("3_x1ecj")
+theme_override_styles/disabled = ExtResource("3_cptoo")
+theme_override_styles/hover = ExtResource("6_q6s1y")
+theme_override_styles/normal = ExtResource("4_j4rqu")
 text = "Main Menu"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
