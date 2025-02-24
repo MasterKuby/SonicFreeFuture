@@ -141,7 +141,9 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 50
 theme_override_styles/focus = ExtResource("3_x1ecj")
 theme_override_styles/disabled = ExtResource("3_cptoo")
+theme_override_styles/hover_pressed = ExtResource("3_x1ecj")
 theme_override_styles/hover = ExtResource("6_q6s1y")
+theme_override_styles/pressed = ExtResource("3_x1ecj")
 theme_override_styles/normal = ExtResource("4_j4rqu")
 text = "Resume"
 
@@ -151,7 +153,9 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 50
 theme_override_styles/focus = ExtResource("3_x1ecj")
 theme_override_styles/disabled = ExtResource("3_cptoo")
+theme_override_styles/hover_pressed = ExtResource("3_x1ecj")
 theme_override_styles/hover = ExtResource("6_q6s1y")
+theme_override_styles/pressed = ExtResource("3_x1ecj")
 theme_override_styles/normal = ExtResource("4_j4rqu")
 text = "Restart"
 
@@ -161,7 +165,9 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 50
 theme_override_styles/focus = ExtResource("3_x1ecj")
 theme_override_styles/disabled = ExtResource("3_cptoo")
+theme_override_styles/hover_pressed = ExtResource("3_x1ecj")
 theme_override_styles/hover = ExtResource("6_q6s1y")
+theme_override_styles/pressed = ExtResource("3_x1ecj")
 theme_override_styles/normal = ExtResource("4_j4rqu")
 text = "Main Menu"
 

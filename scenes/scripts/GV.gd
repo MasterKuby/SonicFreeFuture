@@ -21,6 +21,6 @@ func _process(delta):
 
 func _ready():
 	DiscordRPC.app_id = 1341078725323919490
-	DiscordRPC.large_image = "Sonic Free Future"
+	DiscordRPC.large_image = "Sonic: Free Future"
 	print("Discord working: " + str(DiscordRPC.get_is_discord_working()))
 	DiscordRPC.refresh()
