@@ -42,7 +42,7 @@ func playerControl(delta):
 	direction = Input.get_axis("a", "d") # set direction
 	if not GV.activeCharacter == character:
 		direction = 0
-	if direction and dashed == false: # move
+	if direction: # move
 		velocity.x = direction * SPEED
 	elif dashed == false:
 		velocity.x = move_toward(velocity.x, 0, SPEED/15) # slow down when have no direction
@@ -75,7 +75,7 @@ func airDash(delta):
 			dashed = true
 			sprite.animation = "dash forward"
 			velocity.y = 0
-			velocity.x += 2500*direction
+			velocity.x += 6000*direction
 		if dashed == false:
 			dashingTimer.start()
 	if Input.is_action_just_pressed("d") and GV.activeCharacter == character:
@@ -83,7 +83,7 @@ func airDash(delta):
 			dashed = true
 			sprite.animation = "dash forward"
 			velocity.y = 0
-			velocity.x += 2500*direction
+			velocity.x += 6000*direction
 		if dashed == false:
 			dashingTimer.start()
 	if is_on_floor():
@@ -91,10 +91,10 @@ func airDash(delta):
 
 func spriteAndCameraFlip():
 	if GV.activeCharacter == character:
-		if direction == -1 and dashed == false and velocity.x != 0:
+		if direction == -1 and velocity.x != 0:
 			sprite.flip_h = true
 			phantomCamera.set_follow_offset(Vector2(-75, 0))
-		elif direction == 1 and dashed == false and velocity.x != 0:
+		elif direction == 1 and velocity.x != 0:
 			sprite.flip_h = false
 			phantomCamera.set_follow_offset(Vector2(75, 0))
 
