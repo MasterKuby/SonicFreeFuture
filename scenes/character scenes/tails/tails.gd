@@ -43,11 +43,11 @@ func playerControl(delta):
 	if not GV.activeCharacter == character:
 		direction = 0
 	if direction: # move
-		velocity.x = direction * SPEED
+		velocity.x = lerp(velocity.x, direction*SPEED, 0.025)
 	elif dashed == false:
-		velocity.x = move_toward(velocity.x, 0, SPEED/15) # slow down when have no direction
+		velocity.x = lerp(velocity.x, 0.0, 0.1) # slow down when have no direction
 	elif dashed == true:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = lerp(velocity.x, 0.0, 0.1)
 
 func gravityCheck(delta):
 	if not is_on_floor() and GV.debugMode == false:

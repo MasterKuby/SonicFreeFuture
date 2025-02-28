@@ -7,7 +7,7 @@ extends CharacterBody2D
 
 var character = "sonic"
 
-var SPEED: float = 300.0
+var SPEED: float = 500.0
 var JUMP_VELOCITY: float = -500.0
 
 var dashed: bool = false
@@ -43,11 +43,11 @@ func playerControl(delta):
 	if not GV.activeCharacter == character:
 		direction = 0
 	if direction: # move 👋 fuck you BITCH
-		velocity.x = direction * SPEED
+		velocity.x = lerp(velocity.x, direction*SPEED, 0.025)
 	elif dashed == false:
-		velocity.x = move_toward(velocity.x, 0, SPEED/15) # slow down when have no direction
+		velocity.x = lerp(velocity.x, 0.0, 0.1) # slow down when have no direction
 	elif dashed == true:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = lerp(velocity.x, 0.0, 0.1)
 
 func gravityCheck(delta):
 	if not is_on_floor() and GV.debugMode == false:
@@ -75,7 +75,7 @@ func airDash(delta):
 			dashed = true
 			sprite.animation = "dash forward"
 			velocity.y = 0
-			velocity.x += 6000*direction
+			velocity.x += 2500*direction
 		if dashed == false:
 			dashingTimer.start()
 	if Input.is_action_just_pressed("d") and GV.activeCharacter == character:
@@ -83,7 +83,7 @@ func airDash(delta):
 			dashed = true
 			sprite.animation = "dash forward"
 			velocity.y = 0
-			velocity.x += 6000*direction
+			velocity.x += 2500*direction
 		if dashed == false:
 			dashingTimer.start()
 	if is_on_floor():
