@@ -42,7 +42,7 @@ func playerControl(delta):
 	direction = Input.get_axis("a", "d") # set direction
 	if not GV.activeCharacter == character:
 		direction = 0
-	if direction: # move 👋
+	if direction: # move 👋 fuck you BITCH
 		velocity.x = direction * SPEED
 	elif dashed == false:
 		velocity.x = move_toward(velocity.x, 0, SPEED/15) # slow down when have no direction
