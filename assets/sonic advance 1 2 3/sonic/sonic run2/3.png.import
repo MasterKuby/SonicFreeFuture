@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b87vjp7ss77j6"
-path="res://.godot/imported/1.png-b9380c27fe6483613ddd5214f030687b.ctex"
+uid="uid://bnasoar5maqv8"
+path="res://.godot/imported/3.png-90dcaf243390bf6e71a8e6f94d850ad3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sonic advance 1 2 3/sonic/sonic sprinting/1.png"
-dest_files=["res://.godot/imported/1.png-b9380c27fe6483613ddd5214f030687b.ctex"]
+source_file="res://assets/sonic advance 1 2 3/sonic/sonic run2/3.png"
+dest_files=["res://.godot/imported/3.png-90dcaf243390bf6e71a8e6f94d850ad3.ctex"]
 
 [params]
 

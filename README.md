@@ -3,7 +3,7 @@ Sonic fan game featuring real-time, turn-based and other types of combat. Made i
 # Sprites:
 Sunset Hill Zone: Shadowbot
 
-Sonic & Tails: QuadFactor
+Sonic & Tails: QuadFactor (Sonic Battle), Ren "Foxx" Ramos (Sonic Advance 3), Glukom (Sonic Advance 3)
 # More
 I'm no pro, so code is prolly really bad and I've only BARELY used composition.
 # Disclaimer
