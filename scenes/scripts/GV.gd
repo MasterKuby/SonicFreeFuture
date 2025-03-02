@@ -2,7 +2,9 @@ extends Node
 
 var activeCharacter = "sonic"
 var sonicHealth = 100
-var tailsHealth = 100
+var tailsHealth = 20
+var sonicMaxHealth = 150
+var tailsMaxHealth = 100
 var debugMode: bool = false
 
 func _process(delta):

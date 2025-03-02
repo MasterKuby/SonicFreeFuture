@@ -2,11 +2,11 @@
 
 [ext_resource type="Shader" path="res://scenes/ui scenes/pause menu/pause_menu.gdshader" id="1_8nvtu"]
 [ext_resource type="Script" path="res://scenes/ui scenes/pause menu/pause_menu.gd" id="1_cwv66"]
-[ext_resource type="StyleBox" uid="uid://c1lvkim3hx1ac" path="res://scenes/ui scenes/pause menu/button-disabled.tres" id="3_cptoo"]
+[ext_resource type="StyleBox" uid="uid://c1lvkim3hx1ac" path="res://assets/tres/buttons/button-disabled.tres" id="3_cptoo"]
 [ext_resource type="AudioStream" uid="uid://cfbvibujdsmi1" path="res://assets/sounds/ui/main menu/hoverSFX.ogg" id="3_r0q0j"]
-[ext_resource type="StyleBox" uid="uid://dtkarbbpp4oxb" path="res://scenes/ui scenes/pause menu/button-focused.tres" id="3_x1ecj"]
-[ext_resource type="StyleBox" uid="uid://ccklq6jjabqq2" path="res://scenes/ui scenes/pause menu/button.tres" id="4_j4rqu"]
-[ext_resource type="StyleBox" uid="uid://bnmk0ug8dy1dk" path="res://scenes/ui scenes/pause menu/button-hover.tres" id="6_q6s1y"]
+[ext_resource type="StyleBox" uid="uid://dtkarbbpp4oxb" path="res://assets/tres/buttons/button-focused.tres" id="3_x1ecj"]
+[ext_resource type="StyleBox" uid="uid://ccklq6jjabqq2" path="res://assets/tres/buttons/button.tres" id="4_j4rqu"]
+[ext_resource type="StyleBox" uid="uid://bnmk0ug8dy1dk" path="res://assets/tres/buttons/button-hover.tres" id="6_q6s1y"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mntfi"]
 shader = ExtResource("1_8nvtu")

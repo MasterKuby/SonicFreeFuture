@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dvksx4vumfsf"]
+[gd_scene load_steps=4 format=3 uid="uid://dvksx4vumfsf"]
 
 [ext_resource type="PackedScene" uid="uid://w6ornk46pr7b" path="res://scenes/ui scenes/pause menu/pause_menu.tscn" id="1_x6kq6"]
+[ext_resource type="PackedScene" uid="uid://gdahqpfr6s81" path="res://scenes/ui scenes/hud/healthbar/healthbar.tscn" id="2_l2f8i"]
 
 [sub_resource type="GDScript" id="GDScript_j6yik"]
 script/source = "extends Label
@@ -19,3 +20,7 @@ offset_right = 40.0
 offset_bottom = 23.0
 text = "FPS:"
 script = SubResource("GDScript_j6yik")
+
+[node name="HealthBar" parent="." instance=ExtResource("2_l2f8i")]
+offset_top = 25.0
+offset_bottom = 57.0
