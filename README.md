@@ -11,6 +11,8 @@ Sonic the Hedgehog and all related characters, names, and assets are owned by SE
 This project is non-commercial and is not affiliated with or endorsed by SEGA in any way.
 ********
 # Collaborators
+Don't worry about discord-RPC dll binary change, that's normal. When project is opened it changes then when closed it changes back.
+
 When naming branches, use this scheme...
 
 [branch type]/[stuff in branch]
