@@ -1,4 +1,4 @@
-[gd_scene load_steps=163 format=3 uid="uid://vrsayoueuck6"]
+[gd_scene load_steps=167 format=3 uid="uid://vrsayoueuck6"]
 
 [ext_resource type="Texture2D" uid="uid://ch6873y1h4n3d" path="res://assets/sonic battle/sonic/sonic idle/0.png" id="1_nar73"]
 [ext_resource type="Script" path="res://scenes/character scenes/sonic/sonic.gd" id="1_uhmdp"]
@@ -155,9 +155,13 @@
 [ext_resource type="Texture2D" uid="uid://b210f3l1cc2tu" path="res://assets/sonic battle/sonic/sonic spin kick/7.png" id="146_l60ey"]
 [ext_resource type="Texture2D" uid="uid://ue8uof1s56b6" path="res://assets/sonic battle/sonic/sonic spin kick/8.png" id="147_c8y6f"]
 [ext_resource type="Texture2D" uid="uid://ir03k6dxeubc" path="res://assets/sonic battle/sonic/sonic spin kick/9.png" id="148_n7nke"]
+[ext_resource type="Texture2D" uid="uid://bisw28lcplt7l" path="res://assets/sonic advance 1 2 3/sonic/sonic sprinting/0.png" id="148_yl6ny"]
 [ext_resource type="Texture2D" uid="uid://s84ul16xswrd" path="res://assets/sonic battle/sonic/sonic stopping/0.png" id="149_baseu"]
+[ext_resource type="Texture2D" uid="uid://bwmv27vi35ndc" path="res://assets/sonic advance 1 2 3/sonic/sonic sprinting/1.png" id="149_ksaq7"]
 [ext_resource type="Texture2D" uid="uid://0u8t7nx5j45o" path="res://assets/sonic battle/sonic/sonic stopping/1.png" id="150_dajtp"]
+[ext_resource type="Texture2D" uid="uid://c311h3pe3sgpu" path="res://assets/sonic advance 1 2 3/sonic/sonic sprinting/2.png" id="150_idbg7"]
 [ext_resource type="Texture2D" uid="uid://b45pkemugknft" path="res://assets/sonic battle/sonic/sonic stopping/2.png" id="151_b2ffq"]
+[ext_resource type="Texture2D" uid="uid://cuh56tveu1lw2" path="res://assets/sonic advance 1 2 3/sonic/sonic sprinting/3.png" id="151_c8xbv"]
 [ext_resource type="Texture2D" uid="uid://b0fukptc5dyna" path="res://assets/sonic battle/sonic/sonic stopping/3.png" id="152_c6cqo"]
 [ext_resource type="PackedScene" uid="uid://ba32q4eh6d7h0" path="res://scenes/utility scenes/timers/Double Tap Dash Timer.tscn" id="160_a3u2j"]
 
@@ -653,7 +657,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"run",
-"speed": 9.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -723,6 +727,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("148_yl6ny")
+}, {
+"duration": 1.0,
+"texture": ExtResource("149_ksaq7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("150_idbg7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("151_c8xbv")
+}],
+"loop": true,
+"name": &"sprint",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("149_baseu")
 }, {
 "duration": 1.0,
@@ -778,8 +799,9 @@ script = ExtResource("1_uhmdp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_g4hnk")
-animation = &"idle"
+animation = &"sprint"
 autoplay = "idle"
+frame_progress = 0.262282
 
 [node name="DefaultCollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_32if1")

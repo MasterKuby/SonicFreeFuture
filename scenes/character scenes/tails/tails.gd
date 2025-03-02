@@ -13,12 +13,13 @@ var JUMP_VELOCITY: float = -400.0
 var dashed: bool = false
 var direction: int = 1
 var jumping: bool = false
+var flyingEnabled: bool = false
 
 func _physics_process(delta):
 	debugModeCheck(delta)
 	playerControl(delta)
 	gravityCheck(delta)
-	jumpingFalling(delta)
+	jumpingFallingFlying(delta)
 	airDash(delta)
 	spriteAndCameraFlip()
 	animations()
@@ -43,30 +44,44 @@ func playerControl(delta):
 	if not GV.activeCharacter == character:
 		direction = 0
 	if direction: # move
-		velocity.x = direction * SPEED
+		velocity.x = lerp(velocity.x, direction*SPEED, 0.025)
 	elif dashed == false:
-		velocity.x = move_toward(velocity.x, 0, SPEED/15) # slow down when have no direction
+		velocity.x = lerp(velocity.x, 0.0, 0.1) # slow down when have no direction
 	elif dashed == true:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = lerp(velocity.x, 0.0, 0.1)
 
 func gravityCheck(delta):
 	if not is_on_floor() and GV.debugMode == false:
-		velocity += get_gravity() * delta / 2
+		velocity += (get_gravity() * delta) / 2
+	if not is_on_floor() and GV.debugMode == false and flyingEnabled:
+		velocity += (get_gravity() * delta) / 8
 
-func jumpingFalling(delta):
+func jumpingFallingFlying(delta):
 	# If hasn't dashed, player animation will be jumping when going up and falling when going down.
 	if dashed == false:
-		if not is_on_floor() and velocity.y > 0:
+		if not is_on_floor() and velocity.y > 0 and not flyingEnabled:
 			if not sprite.animation == "falling":
 				sprite.animation = "falling"
 				sprite.play()
-		if not is_on_floor() and velocity.y < 0:
+		if not is_on_floor() and velocity.y < 0 and not flyingEnabled:
 			if not sprite.animation == "jump":
 				sprite.animation = "jump"
 				sprite.play()
 	# If jump button and criteria is met, jump.
 	if Input.is_action_pressed("w") and is_on_floor() and GV.debugMode == false and GV.activeCharacter == character:
 		velocity.y = JUMP_VELOCITY
+	if Input.is_action_pressed("w") and !is_on_floor() and GV.debugMode == false and GV.activeCharacter == character and flyingEnabled: #if flying then fly
+		velocity.y = JUMP_VELOCITY/3
+	if Input.is_action_just_pressed("f"): # toggle flying with f key
+		if flyingEnabled:
+			flyingEnabled = false
+			sprite.animation = "fly"
+			sprite.play()
+		elif !flyingEnabled:
+			flyingEnabled = true
+	if !is_on_floor() and GV.activeCharacter == character and flyingEnabled:
+		sprite.animation = "fly"
+		sprite.play()
 
 func airDash(delta):
 	# After double tapped in direction, dash in said locked direction. (locked in player movement script)
@@ -101,8 +116,12 @@ func spriteAndCameraFlip():
 func animations():
 	if direction != 0 and is_on_floor() and !Input.is_action_pressed("w"):
 		if not sprite.animation == "run":
-			sprite.animation = "run"
-			sprite.play()
+			if abs(velocity.x) >= 200: 
+				sprite.animation = "run"
+				sprite.play()
+			if abs(velocity.x) <= 200: 
+				sprite.animation = "run"
+				sprite.play()
 	elif is_on_floor() and direction == 0:
 		if sprite.animation != "idle" and !Input.is_action_pressed("w"):
 			sprite.animation = "idle"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://bww3l5hfaq7ty"]
+[gd_scene load_steps=40 format=3 uid="uid://bww3l5hfaq7ty"]
 
 [ext_resource type="PackedScene" uid="uid://ba32q4eh6d7h0" path="res://scenes/utility scenes/timers/Double Tap Dash Timer.tscn" id="1_3v1di"]
 [ext_resource type="Script" path="res://scenes/character scenes/tails/tails.gd" id="1_33gqt"]
@@ -19,11 +19,17 @@
 [ext_resource type="Texture2D" uid="uid://bgp863dwmbckj" path="res://assets/sonic battle/tails/tails idle/6.png" id="7_qad7n"]
 [ext_resource type="Texture2D" uid="uid://dk77fsxexejlc" path="res://assets/sonic battle/tails/tails idle/7.png" id="8_5uaty"]
 [ext_resource type="Texture2D" uid="uid://bmtm3n8nkgyan" path="res://assets/sonic battle/tails/tails jump/0.png" id="9_kott3"]
+[ext_resource type="Texture2D" uid="uid://boiut2cs7urii" path="res://assets/sonic battle/tails/tails fly/0.png" id="10_mgirt"]
 [ext_resource type="Texture2D" uid="uid://crd4rad5dbnu2" path="res://assets/sonic battle/tails/tails jump/1.png" id="10_sbt5j"]
 [ext_resource type="Texture2D" uid="uid://cqpodcuu2kydt" path="res://assets/sonic battle/tails/tails jump/2.png" id="11_88c1w"]
+[ext_resource type="Texture2D" uid="uid://diykhjykb8tc" path="res://assets/sonic battle/tails/tails fly/1.png" id="11_laigc"]
 [ext_resource type="Texture2D" uid="uid://drb4hf10kdyd8" path="res://assets/sonic battle/tails/tails jump/3.png" id="12_4vypu"]
+[ext_resource type="Texture2D" uid="uid://d13hxnmq5n3mi" path="res://assets/sonic battle/tails/tails fly/2.png" id="12_kkreq"]
+[ext_resource type="Texture2D" uid="uid://ca1ekb53qg407" path="res://assets/sonic battle/tails/tails fly/3.png" id="13_joi2s"]
 [ext_resource type="Texture2D" uid="uid://dxenq41dr3q11" path="res://assets/sonic battle/tails/tails jump/4.png" id="13_payrq"]
+[ext_resource type="Texture2D" uid="uid://0wuo38nl5f10" path="res://assets/sonic battle/tails/tails fly/4.png" id="14_ix541"]
 [ext_resource type="Texture2D" uid="uid://dcq77j10lw7np" path="res://assets/sonic battle/tails/tails running/1.png" id="14_q377i"]
+[ext_resource type="Texture2D" uid="uid://u5d1pqm4g1if" path="res://assets/sonic battle/tails/tails fly/5.png" id="15_h8b3s"]
 [ext_resource type="Texture2D" uid="uid://dy15p7rnify6y" path="res://assets/sonic battle/tails/tails running/2.png" id="15_vb7jo"]
 [ext_resource type="Texture2D" uid="uid://cil8r477wdykf" path="res://assets/sonic battle/tails/tails running/3.png" id="16_ynucu"]
 [ext_resource type="Texture2D" uid="uid://bs6f6o1g345dc" path="res://assets/sonic battle/tails/tails running/4.png" id="17_j3qjy"]
@@ -67,6 +73,29 @@ animations = [{
 "loop": false,
 "name": &"falling",
 "speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_mgirt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_laigc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_kkreq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_joi2s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_ix541")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_h8b3s")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -157,8 +186,9 @@ script = ExtResource("1_33gqt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_q6asv")
-animation = &"idle"
+animation = &"fly"
 autoplay = "idle"
+frame_progress = 0.723164
 
 [node name="DefaultCollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2, 1)
