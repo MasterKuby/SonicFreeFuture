@@ -10,3 +10,22 @@ I'm no pro, so code is prolly really bad and I've only BARELY used composition.
 Sonic the Hedgehog and all related characters, names, and assets are owned by SEGA. 
 This project is non-commercial and is not affiliated with or endorsed by SEGA in any way.
 ********
+# Collaborators
+When naming branches, use this scheme...
+
+[branch type]/[stuff in branch]
+
+So if the branch was for a spin attack, it'd be...
+
+feature/combat-spin-attack
+
+Or a bug...
+
+bug-fix/floatation-device-uncontrolable
+
+Branch Types:
+- Feature
+- Bug
+- Enhancement
+
+any more..?
