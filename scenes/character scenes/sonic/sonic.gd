@@ -98,11 +98,16 @@ func spriteAndCameraFlip():
 			sprite.flip_h = false
 			phantomCamera.set_follow_offset(Vector2(75, 0))
 
+# what abs() does is it removes the negative, so when we're moving to the left (direction becomes negative so velocity is negative) the function still works as intended since abs() removes the negative. We could also make 2 different ifs, one for if direction is 1 (right) and one for if direction is -1 (left)
 func animations():
 	if direction != 0 and is_on_floor() and !Input.is_action_pressed("w"):
-		if not sprite.animation == "run":
-			sprite.animation = "run"
-			sprite.play()
+		if not sprite.animation == "run" or "sprint":
+			if abs(velocity.x) >= 400: 
+				sprite.animation = "sprint"
+				sprite.play()
+			if abs(velocity.x) <= 400: 
+				sprite.animation = "run"
+				sprite.play()
 	elif is_on_floor() and direction == 0:
 		if sprite.animation != "idle" and !Input.is_action_pressed("w"):
 			sprite.animation = "idle"

@@ -49,6 +49,7 @@ phantomCamera = NodePath("../Master Camera/PhantomCamera")
 
 [node name="Game Camera" parent="Master Camera" instance=ExtResource("5_e031s")]
 position = Vector2(-79.5025, 122.504)
+scale = Vector2(0.500015, 0.500015)
 zoom = Vector2(1, 1)
 
 [node name="CameraController" parent="Master Camera" node_paths=PackedStringArray("phantomCamera", "sonic", "tails") instance=ExtResource("8_06asw")]
