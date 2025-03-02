@@ -23,6 +23,8 @@ func _on_eleven_fifty_two_six_forty_eight_pressed():
 	get_viewport().size = Vector2(1152, 648)
 	center_window()
 
+func _on_settings_pressed():
+	pass
 
 func hovered():
 	if hoverSFX.playing: pass

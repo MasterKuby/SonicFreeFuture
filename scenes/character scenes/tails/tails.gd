@@ -90,7 +90,7 @@ func airDash(delta):
 			dashed = true
 			sprite.animation = "dash forward"
 			velocity.y = 0
-			velocity.x += 6000*direction
+			velocity.x += 1000*direction
 		if dashed == false:
 			dashingTimer.start()
 	if Input.is_action_just_pressed("d") and GV.activeCharacter == character:
@@ -98,7 +98,7 @@ func airDash(delta):
 			dashed = true
 			sprite.animation = "dash forward"
 			velocity.y = 0
-			velocity.x += 6000*direction
+			velocity.x += 1000*direction
 		if dashed == false:
 			dashingTimer.start()
 	if is_on_floor():
