@@ -33,4 +33,4 @@ Branch Types:
 any more..?
 
 
-Main branch is only for stable releases/builds, then dev branch is for merging feature, bug and enhancement branches into BEFORE merging into main branch.
+Main branch is only for stable releases/builds, then dev branch is for merging feature, bug and enhancement branches into BEFORE merging into main branch. But for now, since the game is in its early development stages don't worry about this.
