@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=10 format=3 uid="uid://bt4qc5vx4me5k"]
 
 [ext_resource type="PackedScene" uid="uid://vrsayoueuck6" path="res://scenes/character scenes/sonic/sonic.tscn" id="1_p52fl"]
@@ -6,9 +7,19 @@
 [ext_resource type="PackedScene" uid="uid://c7iyvw8jphkq7" path="res://scenes/utility scenes/camera/Game Camera.tscn" id="5_e031s"]
 [ext_resource type="PackedScene" uid="uid://c1l5tbai56fos" path="res://scenes/object scenes/green hill zone/20.tscn" id="6_02e48"]
 [ext_resource type="PackedScene" uid="uid://b28oqw65ei1rs" path="res://scenes/utility scenes/camera/Camera Controller.tscn" id="8_06asw"]
+=======
+[gd_scene load_steps=7 format=3 uid="uid://bt4qc5vx4me5k"]
+
+[ext_resource type="PackedScene" uid="uid://vrsayoueuck6" path="res://scenes/character scenes/sonic/sonic.tscn" id="1_p52fl"]
+[ext_resource type="PackedScene" path="res://scenes/utility scenes/camera/master_camera.tscn" id="4_njaqx"]
+[ext_resource type="PackedScene" uid="uid://dju8jpflciirc" path="res://scenes/object scenes/green hill zone/26.tscn" id="6_b2ogh"]
+>>>>>>> Stashed changes
 [ext_resource type="PackedScene" uid="uid://bww3l5hfaq7ty" path="res://scenes/character scenes/tails/tails.tscn" id="9_ouuth"]
-[ext_resource type="PackedScene" uid="uid://difvhibqe05gi" path="res://scenes/utility scenes/camera/Phantom Camera.tscn" id="9_u6yru"]
 [ext_resource type="PackedScene" uid="uid://dvksx4vumfsf" path="res://scenes/ui scenes/GUI/gui.tscn" id="10_dyd48"]
+<<<<<<< Updated upstream
+=======
+[ext_resource type="PackedScene" uid="uid://ddy5clqfijbpm" path="res://scenes/object scenes/green hill zone/23.tscn" id="16_pswlk"]
+>>>>>>> Stashed changes
 
 [node name="World 1" type="Node2D"]
 position = Vector2(100, 180)
@@ -45,19 +56,35 @@ phantomCamera = NodePath("../Master Camera/PhantomCamera")
 
 [node name="GUI" parent="." instance=ExtResource("10_dyd48")]
 
-[node name="Master Camera" type="Node2D" parent="."]
+[node name="Master Camera" parent="." instance=ExtResource("4_njaqx")]
 
+<<<<<<< Updated upstream
 [node name="Game Camera" parent="Master Camera" instance=ExtResource("5_e031s")]
 position = Vector2(-79.5025, 122.504)
+=======
+[node name="Game Camera" parent="Master Camera" index="0"]
+position = Vector2(-38.0011, 2.00006)
+>>>>>>> Stashed changes
 scale = Vector2(0.500015, 0.500015)
-zoom = Vector2(1, 1)
 
-[node name="CameraController" parent="Master Camera" node_paths=PackedStringArray("phantomCamera", "sonic", "tails") instance=ExtResource("8_06asw")]
-phantomCamera = NodePath("../PhantomCamera")
+[node name="CameraController" parent="Master Camera" index="1" node_paths=PackedStringArray("sonic", "tails")]
 sonic = NodePath("../../Sonic")
 tails = NodePath("../../Tails")
 
+<<<<<<< Updated upstream
 [node name="PhantomCamera" parent="Master Camera" node_paths=PackedStringArray("follow_target") instance=ExtResource("9_u6yru")]
 position = Vector2(-59.0002, 425.001)
 follow_target = NodePath("../../Sonic")
 zoom = Vector2(1, 1)
+=======
+[node name="PhantomCamera" parent="Master Camera" index="2"]
+position = Vector2(24, 184)
+
+[node name="23" parent="." instance=ExtResource("16_pswlk")]
+position = Vector2(0, 100)
+
+[node name="26" parent="." instance=ExtResource("6_b2ogh")]
+position = Vector2(175.005, 99.003)
+
+[editable path="Master Camera"]
+>>>>>>> Stashed changes
