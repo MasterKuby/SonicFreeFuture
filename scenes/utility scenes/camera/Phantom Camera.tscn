@@ -9,13 +9,12 @@ duration = 1.0
 transition = 0
 ease = 2
 
-[node name="PhantomCamera" type="Node2D" node_paths=PackedStringArray("follow_target")]
+[node name="PhantomCamera" type="Node2D"]
 top_level = true
 position = Vector2(-59.0002, 425.001)
 script = ExtResource("1_tsoyf")
 follow_mode = 2
-follow_target = NodePath("")
-zoom = Vector2(0.8, 0.8)
+zoom = Vector2(3, 3)
 tween_resource = SubResource("Resource_1ipcq")
 follow_offset = Vector2(100, 0)
 follow_damping = true
