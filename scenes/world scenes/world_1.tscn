@@ -1,26 +1,53 @@
-[gd_scene load_steps=5 format=3 uid="uid://dwcxrarsfns4c"]
+[gd_scene load_steps=9 format=3 uid="uid://bt4qc5vx4me5k"]
 
-[ext_resource type="PackedScene" uid="uid://vrsayoueuck6" path="res://scenes/character scenes/sonic/sonic.tscn" id="1_cel6u"]
-[ext_resource type="PackedScene" uid="uid://bww3l5hfaq7ty" path="res://scenes/character scenes/tails/tails.tscn" id="2_34d10"]
-[ext_resource type="PackedScene" uid="uid://ddy5clqfijbpm" path="res://scenes/object scenes/green hill zone/23.tscn" id="3_sgj3i"]
-[ext_resource type="PackedScene" uid="uid://v7fc87ir23bh" path="res://scenes/utility scenes/camera/Master Camera.tscn" id="4_dhs8m"]
+[ext_resource type="PackedScene" uid="uid://vrsayoueuck6" path="res://scenes/character scenes/sonic/sonic.tscn" id="1_p52fl"]
+[ext_resource type="PackedScene" uid="uid://bqdk2slsydjdo" path="res://scenes/object scenes/green hill zone/0.tscn" id="3_pdyl6"]
+[ext_resource type="PackedScene" uid="uid://coq0npqfs2csg" path="res://scenes/utility scenes/camera/master_camera.tscn" id="4_dd0aw"]
+[ext_resource type="PackedScene" uid="uid://kq1l2oajmlp2" path="res://scenes/object scenes/green hill zone/11.tscn" id="8_flf3m"]
+[ext_resource type="PackedScene" uid="uid://bww3l5hfaq7ty" path="res://scenes/character scenes/tails/tails.tscn" id="9_ouuth"]
+[ext_resource type="PackedScene" uid="uid://dvksx4vumfsf" path="res://scenes/ui scenes/GUI/gui.tscn" id="10_dyd48"]
+[ext_resource type="PackedScene" uid="uid://ddy5clqfijbpm" path="res://scenes/object scenes/green hill zone/23.tscn" id="16_pswlk"]
+[ext_resource type="PackedScene" uid="uid://h8e4ji2adp5x" path="res://scenes/object scenes/green hill zone/25.tscn" id="19_ixijv"]
 
-[node name="World1" type="Node2D"]
+[node name="World 1" type="Node2D"]
+position = Vector2(100, 180)
+scale = Vector2(1.99994, 1.99994)
 
-[node name="Sonic" parent="." node_paths=PackedStringArray("phantomCamera") instance=ExtResource("1_cel6u")]
-phantomCamera = NodePath("../MasterCamera/PhantomCamera")
+[node name="Sonic" parent="." node_paths=PackedStringArray("phantomCamera") instance=ExtResource("1_p52fl")]
+phantomCamera = NodePath("../Master Camera/PhantomCamera")
 
-[node name="Tails" parent="." node_paths=PackedStringArray("phantomCamera") instance=ExtResource("2_34d10")]
-phantomCamera = NodePath("../MasterCamera/PhantomCamera")
+[node name="Tails" parent="." node_paths=PackedStringArray("phantomCamera") instance=ExtResource("9_ouuth")]
+phantomCamera = NodePath("../Master Camera/PhantomCamera")
 
-[node name="23" parent="." instance=ExtResource("3_sgj3i")]
-position = Vector2(0, 70)
-scale = Vector2(13.52, 1)
+[node name="GUI" parent="." instance=ExtResource("10_dyd48")]
 
-[node name="MasterCamera" parent="." instance=ExtResource("4_dhs8m")]
+[node name="Master Camera" parent="." instance=ExtResource("4_dd0aw")]
 
-[node name="CameraController" parent="MasterCamera" index="0" node_paths=PackedStringArray("sonic", "tails")]
+[node name="Game Camera" parent="Master Camera" index="0"]
+position = Vector2(50.0015, 0)
+scale = Vector2(0.500015, 0.500015)
+
+[node name="CameraController" parent="Master Camera" index="1" node_paths=PackedStringArray("sonic", "tails")]
 sonic = NodePath("../../Sonic")
 tails = NodePath("../../Tails")
 
-[editable path="MasterCamera"]
+[node name="24" parent="." instance=ExtResource("16_pswlk")]
+position = Vector2(192.006, 60)
+
+[node name="26" parent="." instance=ExtResource("19_ixijv")]
+position = Vector2(-46.0014, 67.502)
+
+[node name="0" parent="." instance=ExtResource("3_pdyl6")]
+position = Vector2(-22.0007, 176.005)
+
+[node name="11" parent="." instance=ExtResource("8_flf3m")]
+position = Vector2(-106.003, 264.508)
+
+[node name="12" parent="." instance=ExtResource("8_flf3m")]
+position = Vector2(62.0019, 264.508)
+
+[node name="11" parent="12" index="0"]
+flip_h = true
+
+[editable path="Master Camera"]
+[editable path="12"]

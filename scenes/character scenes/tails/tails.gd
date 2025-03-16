@@ -72,7 +72,7 @@ func jumpingFallingFlying(delta):
 		velocity.y = JUMP_VELOCITY
 	if Input.is_action_pressed("w") and !is_on_floor() and GV.debugMode == false and GV.activeCharacter == character and flyingEnabled: #if flying then fly
 		velocity.y = JUMP_VELOCITY/3
-	if Input.is_action_just_pressed("f"): # toggle flying with f key
+	if Input.is_action_just_pressed("f") and GV.activeCharacter == "tails": # toggle flying with f key
 		if flyingEnabled:
 			flyingEnabled = false
 			sprite.animation = "fly"
@@ -90,7 +90,7 @@ func airDash(delta):
 			dashed = true
 			sprite.animation = "dash forward"
 			velocity.y = 0
-			velocity.x += 6000*direction
+			velocity.x += 1000*direction
 		if dashed == false:
 			dashingTimer.start()
 	if Input.is_action_just_pressed("d") and GV.activeCharacter == character:
@@ -98,7 +98,7 @@ func airDash(delta):
 			dashed = true
 			sprite.animation = "dash forward"
 			velocity.y = 0
-			velocity.x += 6000*direction
+			velocity.x += 1000*direction
 		if dashed == false:
 			dashingTimer.start()
 	if is_on_floor():

@@ -14,7 +14,6 @@ top_level = true
 position = Vector2(-59.0002, 425.001)
 script = ExtResource("1_tsoyf")
 follow_mode = 2
-zoom = Vector2(3, 3)
 tween_resource = SubResource("Resource_1ipcq")
 follow_offset = Vector2(100, 0)
 follow_damping = true

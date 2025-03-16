@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://coq0npqfs2csg"]
+
+[ext_resource type="PackedScene" uid="uid://c7iyvw8jphkq7" path="res://scenes/utility scenes/camera/Game Camera.tscn" id="1_cnihy"]
+[ext_resource type="PackedScene" uid="uid://b28oqw65ei1rs" path="res://scenes/utility scenes/camera/Camera Controller.tscn" id="2_r65lw"]
+[ext_resource type="PackedScene" uid="uid://difvhibqe05gi" path="res://scenes/utility scenes/camera/Phantom Camera.tscn" id="3_kyf5k"]
+
+[node name="Master Camera" type="Node2D"]
+
+[node name="Game Camera" parent="." instance=ExtResource("1_cnihy")]
+physics_interpolation_mode = 0
+position = Vector2(200, 180)
+scale = Vector2(1, 1)
+zoom = Vector2(3, 3)
+process_callback = 1
+
+[node name="CameraController" parent="." node_paths=PackedStringArray("phantomCamera") instance=ExtResource("2_r65lw")]
+phantomCamera = NodePath("../PhantomCamera")
+
+[node name="PhantomCamera" parent="." instance=ExtResource("3_kyf5k")]
+position = Vector2(200, 180)
+zoom = Vector2(3, 3)
