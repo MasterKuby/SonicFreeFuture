@@ -10,3 +10,5 @@ I'm no pro, so code is prolly really bad and I've only BARELY used composition.
 Sonic the Hedgehog and all related characters, names, and assets are owned by SEGA. 
 This project is non-commercial and is not affiliated with or endorsed by SEGA in any way.
 ********
+# Collaborators
+Don't worry about the "discord_game_sdk_binding_debug.dll" file change - when project is opened the file exists and when closes the file is deleted.
