@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cuum3gq34rkk6"
+path="res://.godot/imported/door_close_001.ogg-1908cde41231539f91daa8981dc1554e.oggvorbisstr"
+
+[deps]
+
+source_file="res://addons/kenney/kenney-sci-fi-sounds-for-godot-c094967fe930c57ddb376f67c75f8aa0296690b7/addons/kenney sci-fi sounds/door_close_001.ogg"
+dest_files=["res://.godot/imported/door_close_001.ogg-1908cde41231539f91daa8981dc1554e.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

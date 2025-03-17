@@ -1,7 +1,7 @@
 [gd_scene load_steps=167 format=3 uid="uid://vrsayoueuck6"]
 
 [ext_resource type="Texture2D" uid="uid://ch6873y1h4n3d" path="res://assets/sonic battle/sonic/sonic idle/0.png" id="1_nar73"]
-[ext_resource type="Script" path="res://scenes/character scenes/sonic/sonic.gd" id="1_uhmdp"]
+[ext_resource type="Script" uid="uid://bfakgewysax5j" path="res://scenes/character scenes/sonic/sonic.gd" id="1_uhmdp"]
 [ext_resource type="Texture2D" uid="uid://b2f2o4wcq0swk" path="res://assets/sonic battle/sonic/sonic rocket air kick/0.png" id="2_m2igl"]
 [ext_resource type="Texture2D" uid="uid://dtlyhgfblayph" path="res://assets/sonic battle/sonic/sonic idle/1.png" id="2_mgyy1"]
 [ext_resource type="Texture2D" uid="uid://slq6gnvbxy8f" path="res://assets/sonic battle/sonic/sonic rocket air kick/1.png" id="3_78l7x"]

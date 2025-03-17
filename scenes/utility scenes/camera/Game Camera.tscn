@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c7iyvw8jphkq7"]
 
-[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_7n0ta"]
+[ext_resource type="Script" uid="uid://bc5d06ug4r3u7" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_7n0ta"]
 
 [node name="Game Camera" type="Camera2D"]
 physics_interpolation_mode = 1

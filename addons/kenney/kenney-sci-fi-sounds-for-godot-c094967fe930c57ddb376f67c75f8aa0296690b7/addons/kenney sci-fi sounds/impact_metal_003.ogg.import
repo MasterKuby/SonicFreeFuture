@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b63yejrrw524p"
+path="res://.godot/imported/impact_metal_003.ogg-7878a0988576ea40c55b51e7cca550f4.oggvorbisstr"
+
+[deps]
+
+source_file="res://addons/kenney/kenney-sci-fi-sounds-for-godot-c094967fe930c57ddb376f67c75f8aa0296690b7/addons/kenney sci-fi sounds/impact_metal_003.ogg"
+dest_files=["res://.godot/imported/impact_metal_003.ogg-7878a0988576ea40c55b51e7cca550f4.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://difvhibqe05gi"]
 
-[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="1_tsoyf"]
-[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="2_oxrhe"]
+[ext_resource type="Script" uid="uid://81mleybdmfpy" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="1_tsoyf"]
+[ext_resource type="Script" uid="uid://bk6ddh5w74it7" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="2_oxrhe"]
 
 [sub_resource type="Resource" id="Resource_1ipcq"]
 script = ExtResource("2_oxrhe")

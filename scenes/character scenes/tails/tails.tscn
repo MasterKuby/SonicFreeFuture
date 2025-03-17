@@ -1,7 +1,7 @@
 [gd_scene load_steps=40 format=3 uid="uid://bww3l5hfaq7ty"]
 
 [ext_resource type="PackedScene" uid="uid://ba32q4eh6d7h0" path="res://scenes/utility scenes/timers/Double Tap Dash Timer.tscn" id="1_3v1di"]
-[ext_resource type="Script" path="res://scenes/character scenes/tails/tails.gd" id="1_33gqt"]
+[ext_resource type="Script" uid="uid://dwh2vn1fj3bqo" path="res://scenes/character scenes/tails/tails.gd" id="1_33gqt"]
 [ext_resource type="Texture2D" uid="uid://dpyi4lye5rjcc" path="res://assets/sonic battle/tails/tails falling/0.png" id="1_gq0si"]
 [ext_resource type="Texture2D" uid="uid://derqyoaj5pp3g" path="res://assets/sonic battle/tails/tails hop/1.png" id="1_qid8a"]
 [ext_resource type="Texture2D" uid="uid://bnp25u28kk7ub" path="res://assets/sonic battle/tails/tails idle/0.png" id="1_w1ge2"]

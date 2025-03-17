@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://w6ornk46pr7b"]
 
-[ext_resource type="Shader" path="res://scenes/ui scenes/pause menu/pause_menu.gdshader" id="1_8nvtu"]
-[ext_resource type="Script" path="res://scenes/ui scenes/pause menu/pause_menu.gd" id="1_cwv66"]
+[ext_resource type="Shader" uid="uid://4uub8lq7c4my" path="res://scenes/ui scenes/pause menu/pause_menu.gdshader" id="1_8nvtu"]
+[ext_resource type="Script" uid="uid://eouq0a7tculh" path="res://scenes/ui scenes/pause menu/pause_menu.gd" id="1_cwv66"]
 [ext_resource type="StyleBox" uid="uid://253fucvdttjd" path="res://assets/tres/windows/menu.tres" id="3_7mfgx"]
 [ext_resource type="StyleBox" uid="uid://c1lvkim3hx1ac" path="res://assets/tres/buttons/button-disabled.tres" id="3_cptoo"]
 [ext_resource type="AudioStream" uid="uid://cfbvibujdsmi1" path="res://assets/sounds/ui/main menu/hoverSFX.ogg" id="3_r0q0j"]
@@ -69,8 +69,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rufxp"]
 _data = {
-"RESET": SubResource("Animation_ubgno"),
-"blur and fade": SubResource("Animation_u717h")
+&"RESET": SubResource("Animation_ubgno"),
+&"blur and fade": SubResource("Animation_u717h")
 }
 
 [node name="Pause Menu" type="Control"]

@@ -7,8 +7,8 @@ extends CharacterBody2D
 
 var character = "sonic"
 
-var SPEED: float = 500.0
-var JUMP_VELOCITY: float = -500.0
+var SPEED: float = 250.0
+var JUMP_VELOCITY: float = -250.0
 
 var dashed: bool = false
 var direction: int = 1
@@ -51,7 +51,7 @@ func playerControl(delta):
 
 func gravityCheck(delta):
 	if not is_on_floor() and GV.debugMode == false:
-		velocity += get_gravity() * delta
+		velocity += get_gravity() * delta / 2
 
 func jumpingFalling(delta):
 	# If hasn't dashed, player animation will be jumping when going up and falling when going down.

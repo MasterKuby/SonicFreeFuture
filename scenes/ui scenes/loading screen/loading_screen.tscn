@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://d38rxuupkv2wn"]
 
-[ext_resource type="Script" path="res://scenes/ui scenes/loading screen/loading_screen.gd" id="1_7a3du"]
+[ext_resource type="Script" uid="uid://cc85b5e80e1dy" path="res://scenes/ui scenes/loading screen/loading_screen.gd" id="1_7a3du"]
 [ext_resource type="Texture2D" uid="uid://cpeopsh6his5n" path="res://Sonic Free Future.png" id="2_kbu3b"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t5xaq"]

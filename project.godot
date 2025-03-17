@@ -12,9 +12,9 @@ config_version=5
 
 config/name="Sonic Free Future"
 run/main_scene="res://scenes/ui scenes/loading screen/loading_screen.tscn"
-config/features=PackedStringArray("4.3", "GL Compatibility")
-boot_splash/image="res://Sonic Free Future.png"
+config/features=PackedStringArray("4.4", "GL Compatibility")
 boot_splash/fullsize=false
+boot_splash/image="res://Sonic Free Future.png"
 config/icon="res://Sonic Free Future.png"
 
 [autoload]
