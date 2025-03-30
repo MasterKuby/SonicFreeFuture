@@ -25,6 +25,9 @@ phantomCamera = NodePath("../Master Camera/PhantomCamera")
 sonic = NodePath("../../Sonic")
 tails = NodePath("../../Tails")
 
+[node name="25" parent="." instance=ExtResource("16_pswlk")]
+position = Vector2(382, 60)
+
 [node name="24" parent="." instance=ExtResource("16_pswlk")]
 position = Vector2(192.006, 60)
 

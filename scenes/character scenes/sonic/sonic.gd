@@ -102,10 +102,10 @@ func spriteAndCameraFlip():
 func animations():
 	if direction != 0 and is_on_floor() and !Input.is_action_pressed("w"):
 		if not sprite.animation == "run" or "sprint":
-			if abs(velocity.x) >= 400: 
+			if abs(velocity.x) >= 200: 
 				sprite.animation = "sprint"
 				sprite.play()
-			if abs(velocity.x) <= 400: 
+			if abs(velocity.x) <= 200: 
 				sprite.animation = "run"
 				sprite.play()
 	elif is_on_floor() and direction == 0:
