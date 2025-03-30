@@ -14,6 +14,10 @@ var dashed: bool = false
 var direction: int = 1
 var jumping: bool = false
 
+func quickReset():
+	if Input.is_action_pressed("reset"):
+		get_tree().reload_current_scene()
+
 func _physics_process(delta):
 	debugModeCheck(delta)
 	playerControl(delta)
@@ -24,6 +28,7 @@ func _physics_process(delta):
 	animations()
 	move_and_slide()
 	zIndexSort()
+	quickReset()
 
 func debugModeCheck(delta):
 	if GV.debugMode == true and GV.activeCharacter == character:
