@@ -12,39 +12,74 @@
 [node name="World 1" type="Node2D"]
 
 [node name="Sonic" parent="." node_paths=PackedStringArray("phantomCamera") instance=ExtResource("1_p52fl")]
+position = Vector2(-129, -106)
+scale = Vector2(2, 2)
 phantomCamera = NodePath("../Master Camera/PhantomCamera")
 
 [node name="Tails" parent="." node_paths=PackedStringArray("phantomCamera") instance=ExtResource("9_ouuth")]
+position = Vector2(-9, -107)
+scale = Vector2(2, 2)
 phantomCamera = NodePath("../Master Camera/PhantomCamera")
 
 [node name="GUI" parent="." instance=ExtResource("10_dyd48")]
 
 [node name="Master Camera" parent="." instance=ExtResource("4_dd0aw")]
 
+[node name="Game Camera" parent="Master Camera" index="0"]
+zoom = Vector2(3, 3)
+
 [node name="CameraController" parent="Master Camera" index="1" node_paths=PackedStringArray("sonic", "tails")]
 sonic = NodePath("../../Sonic")
 tails = NodePath("../../Tails")
 
+[node name="PhantomCamera" parent="Master Camera" index="2"]
+zoom = Vector2(3, 3)
+
 [node name="25" parent="." instance=ExtResource("16_pswlk")]
-position = Vector2(382, 60)
+position = Vector2(810, 73)
+scale = Vector2(2, 2)
 
 [node name="24" parent="." instance=ExtResource("16_pswlk")]
-position = Vector2(192.006, 60)
+position = Vector2(428, 73)
+scale = Vector2(2, 2)
 
 [node name="26" parent="." instance=ExtResource("19_ixijv")]
 position = Vector2(-46.0014, 67.502)
+scale = Vector2(2, 2)
 
 [node name="0" parent="." instance=ExtResource("3_pdyl6")]
-position = Vector2(-22.0007, 176.005)
+position = Vector2(2, 284)
+scale = Vector2(2, 2)
 
 [node name="11" parent="." instance=ExtResource("8_flf3m")]
-position = Vector2(-106.003, 264.508)
+position = Vector2(-166, 462)
+scale = Vector2(2, 2)
 
 [node name="12" parent="." instance=ExtResource("8_flf3m")]
 position = Vector2(62.0019, 264.508)
 
 [node name="11" parent="12" index="0"]
+position = Vector2(107.998, 197.492)
+scale = Vector2(2, 2)
 flip_h = true
+
+[node name="CollisionPolygon2D" parent="12/StaticBody2D" index="0"]
+position = Vector2(107.998, 196.492)
+scale = Vector2(2, 2)
+
+[node name="runRight" type="RichTextLabel" parent="."]
+offset_left = -234.0
+offset_top = -40.0
+offset_right = -25.0
+offset_bottom = -15.0
+text = "press D to run right!"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 109.0
+offset_top = -4.0
+offset_right = 361.0
+offset_bottom = 22.0
+text = "Space to jump!"
 
 [editable path="Master Camera"]
 [editable path="12"]

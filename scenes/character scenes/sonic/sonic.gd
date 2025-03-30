@@ -34,25 +34,25 @@ func debugModeCheck(delta):
 	if GV.debugMode == true and GV.activeCharacter == character:
 		if Input.is_action_pressed("up"):
 			velocity.y = 0
-			position.y += -5
+			position.y += -10
 		if Input.is_action_pressed("down"):
-			position.y += 5
+			position.y += 10
 			velocity.y = 0
 		if Input.is_action_pressed("left"):
-			position.x += -5	
+			position.x += -10	
 		if Input.is_action_pressed("right"):
-			position.x += 5
+			position.x += 10
 
 func playerControl(delta):
 	direction = Input.get_axis("a", "d") # set direction
 	if not GV.activeCharacter == character:
 		direction = 0
 	if direction: # move 👋 fuck you BITCH
-		velocity.x = lerp(velocity.x, direction*SPEED, 0.025)
+		velocity.x = lerp(velocity.x, direction*SPEED, 0.05)
 	elif dashed == false:
-		velocity.x = lerp(velocity.x, 0.0, 0.1) # slow down when have no direction
+		velocity.x = lerp(velocity.x, 0.0, 0.2) # slow down when have no direction
 	elif dashed == true:
-		velocity.x = lerp(velocity.x, 0.0, 0.1)
+		velocity.x = lerp(velocity.x, 0.0, 0.2)
 
 func gravityCheck(delta):
 	if not is_on_floor() and GV.debugMode == false:
@@ -80,7 +80,7 @@ func airDash(delta):
 			dashed = true
 			sprite.animation = "dash forward"
 			velocity.y = 0
-			velocity.x += 1000*direction
+			velocity.x += 2000*direction
 		if dashed == false:
 			dashingTimer.start()
 	if Input.is_action_just_pressed("d") and GV.activeCharacter == character:
@@ -88,7 +88,7 @@ func airDash(delta):
 			dashed = true
 			sprite.animation = "dash forward"
 			velocity.y = 0
-			velocity.x += 1000*direction
+			velocity.x += 2000*direction
 		if dashed == false:
 			dashingTimer.start()
 	if is_on_floor():
@@ -98,19 +98,19 @@ func spriteAndCameraFlip():
 	if GV.activeCharacter == character:
 		if direction == -1 and velocity.x != 0:
 			sprite.flip_h = true
-			phantomCamera.set_follow_offset(Vector2(-75, 0))
+			phantomCamera.set_follow_offset(Vector2(-150, 0))
 		elif direction == 1 and velocity.x != 0:
 			sprite.flip_h = false
-			phantomCamera.set_follow_offset(Vector2(75, 0))
+			phantomCamera.set_follow_offset(Vector2(150, 0))
 
 # what abs() does is it removes the negative, so when we're moving to the left (direction becomes negative so velocity is negative) the function still works as intended since abs() removes the negative. We could also make 2 different ifs, one for if direction is 1 (right) and one for if direction is -1 (left)
 func animations():
 	if direction != 0 and is_on_floor() and !Input.is_action_pressed("w"):
 		if not sprite.animation == "run" or "sprint":
-			if abs(velocity.x) >= 200: 
+			if abs(velocity.x) >= 400: 
 				sprite.animation = "sprint"
 				sprite.play()
-			if abs(velocity.x) <= 200: 
+			if abs(velocity.x) <= 400: 
 				sprite.animation = "run"
 				sprite.play()
 	elif is_on_floor() and direction == 0:
