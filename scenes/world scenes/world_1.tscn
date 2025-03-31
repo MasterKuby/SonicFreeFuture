@@ -26,14 +26,14 @@ phantomCamera = NodePath("../Master Camera/PhantomCamera")
 [node name="Master Camera" parent="." instance=ExtResource("4_dd0aw")]
 
 [node name="Game Camera" parent="Master Camera" index="0"]
-zoom = Vector2(3, 3)
+zoom = Vector2(2, 2)
 
 [node name="CameraController" parent="Master Camera" index="1" node_paths=PackedStringArray("sonic", "tails")]
 sonic = NodePath("../../Sonic")
 tails = NodePath("../../Tails")
 
 [node name="PhantomCamera" parent="Master Camera" index="2"]
-zoom = Vector2(3, 3)
+zoom = Vector2(2, 2)
 
 [node name="25" parent="." instance=ExtResource("16_pswlk")]
 position = Vector2(810, 73)
