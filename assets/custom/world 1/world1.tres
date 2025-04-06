@@ -1,0 +1,22 @@
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://sdmxfukjidke"]
+
+[ext_resource type="Texture2D" uid="uid://bueklyeuunkng" path="res://assets/custom/world 1/sff-ghz-tileset.png" id="1_3jj7b"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_enk2s"]
+resource_name = "World 1"
+texture = ExtResource("1_3jj7b")
+texture_region_size = Vector2i(32, 32)
+3:9/0 = 0
+3:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+4:9/0 = 0
+4:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+2:9/next_alternative_id = 2
+2:9/0 = 0
+2:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+2:9/1 = 1
+
+[resource]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 5
+sources/0 = SubResource("TileSetAtlasSource_enk2s")
