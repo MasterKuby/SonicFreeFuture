@@ -24,6 +24,7 @@ phantomCamera = NodePath("../Master Camera/PhantomCamera")
 
 [node name="Game Camera" parent="Master Camera" index="0"]
 zoom = Vector2(2, 2)
+editor_draw_limits = true
 
 [node name="CameraController" parent="Master Camera" index="1" node_paths=PackedStringArray("sonic", "tails")]
 sonic = NodePath("../../Sonic")
