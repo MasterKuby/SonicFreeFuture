@@ -5,6 +5,8 @@ extends Control
 
 func _ready():
 	hide()
+	LimboConsole.enabled = true
+
 
 func _process(delta):
 	escPressed()
@@ -14,11 +16,13 @@ func resume():
 	get_tree().paused = false
 	await(animationPlayer.animation_finished)
 	hide()
+	LimboConsole.enabled = true
 
 func pause():
 	show()
 	animationPlayer.play("blur and fade")
 	get_tree().paused = true
+	LimboConsole.enabled = false
 
 func escPressed():
 	if Input.is_action_just_pressed("esc") and !get_tree().paused: pause()
