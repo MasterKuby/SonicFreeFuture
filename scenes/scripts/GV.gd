@@ -19,17 +19,22 @@ func _ready():
 	DiscordRPC.large_image = "Sonic: Free Future"
 	print("Discord working: " + str(DiscordRPC.get_is_discord_working()))
 	DiscordRPC.refresh()
-	# Commands
-	LimboConsole.register_command(debugging)
-	 # This registers the command, the first param is the callable command.
-	LimboConsole.register_command(health)
-	
-func debugging(state: bool):
-	debugMode = state
-	print("debugging is", state)
+	# Commands - This registers the command, the first param is the function to call, the second param is the in-game callable command, and the third param is the description.
+	LimboConsole.register_command(debuggingCommand, "debugging", "Toggle debugMode")
+	LimboConsole.register_command(debuggingCommand, "debugmode", "Toggle debugMode")
+	LimboConsole.register_command(hpCommand, "hp", "Modify a character's HP")
+	# Autocomplete - First Param: Command Name - Second Param: Argument slot/ID (starts at 0 so second is 1) - Third Param: I have no idea how it works but just fill in your autocompletes.
+	LimboConsole.add_argument_autocomplete_source("debugging", 1, func(): return [true, false])
+	LimboConsole.add_argument_autocomplete_source("debugmode", 1, func(): return [true, false])
+	LimboConsole.add_argument_autocomplete_source("hp", 1, func(): return ["sonic", "tails"])
 
-func health(character: String, value: int):
+func debuggingCommand(state: bool):
+	debugMode = state
+	LimboConsole.info("Debugging is " + str(state))
+
+func hpCommand(character: String, value: int):
 	if character == "sonic":
 		sonicHealth+= value
 	if character == "tails":
 		tailsHealth+= value
+	LimboConsole.info(str(character) + "'s HP has been changed by " + str(value))
