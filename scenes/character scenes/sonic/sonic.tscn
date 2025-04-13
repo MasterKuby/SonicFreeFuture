@@ -1,4 +1,4 @@
-[gd_scene load_steps=167 format=3 uid="uid://vrsayoueuck6"]
+[gd_scene load_steps=169 format=3 uid="uid://vrsayoueuck6"]
 
 [ext_resource type="Texture2D" uid="uid://ch6873y1h4n3d" path="res://assets/sonic battle/sonic/sonic idle/0.png" id="1_nar73"]
 [ext_resource type="Script" uid="uid://bfakgewysax5j" path="res://scenes/character scenes/sonic/sonic.gd" id="1_uhmdp"]
@@ -164,6 +164,8 @@
 [ext_resource type="Texture2D" uid="uid://cuh56tveu1lw2" path="res://assets/sonic advance 1 2 3/sonic/sonic sprinting/3.png" id="151_c8xbv"]
 [ext_resource type="Texture2D" uid="uid://b0fukptc5dyna" path="res://assets/sonic battle/sonic/sonic stopping/3.png" id="152_c6cqo"]
 [ext_resource type="PackedScene" uid="uid://ba32q4eh6d7h0" path="res://scenes/utility scenes/timers/Double Tap Dash Timer.tscn" id="160_a3u2j"]
+[ext_resource type="Script" uid="uid://c4e1fna20ooxw" path="res://scenes/composition nodes/hp_component.gd" id="165_hs1xv"]
+[ext_resource type="Script" uid="uid://b8g0homsjo5mp" path="res://scenes/composition nodes/hitbox_component.gd" id="166_7wjwh"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g4hnk"]
 animations = [{
@@ -807,3 +809,15 @@ frame_progress = 0.262282
 shape = SubResource("CapsuleShape2D_32if1")
 
 [node name="Double Tap Dash Timer" parent="." instance=ExtResource("160_a3u2j")]
+
+[node name="HPComponent" type="Node2D" parent="."]
+script = ExtResource("165_hs1xv")
+metadata/_custom_type_script = "uid://c4e1fna20ooxw"
+
+[node name="HitboxComponent" type="Area2D" parent="." node_paths=PackedStringArray("HPComponent")]
+script = ExtResource("166_7wjwh")
+HPComponent = NodePath("../HPComponent")
+metadata/_custom_type_script = "uid://b8g0homsjo5mp"
+
+[node name="DefaultCollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+shape = SubResource("CapsuleShape2D_32if1")

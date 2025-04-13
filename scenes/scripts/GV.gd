@@ -1,11 +1,14 @@
 extends Node
 
 var activeCharacter = "sonic"
-var sonicHealth = 100
-var tailsHealth = 20
-var sonicMaxHealth = 150
-var tailsMaxHealth = 100
+var sonicHP = 100
+var tailsHP = 20
+var sonicMaxHP = 150
+var tailsMaxHP = 100
 var debugMode: bool = false
+var sonicHPChanged: bool = false
+var tailsHPChanged: bool = false
+# set the HPChanged to true when changed HP in GV
 
 func _process(delta):
 	if Input.is_action_just_pressed("q"):
@@ -35,7 +38,9 @@ func debuggingCommand(state: bool):
 
 func hpCommand(character: String, value: int):
 	if character == "sonic":
-		sonicHealth+= value
+		sonicHP += value
+		sonicHPChanged = true
 	if character == "tails":
-		tailsHealth+= value
+		tailsHP += value
+		tailsHPChanged = true
 	LimboConsole.info(str(character) + "'s HP has been changed by " + str(value))

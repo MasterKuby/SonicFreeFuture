@@ -27,11 +27,11 @@ func _ready():
 
 func _process(delta):
 	if GV.activeCharacter == \"sonic\":
-		max_value = GV.sonicMaxHealth
-		value = GV.sonicHealth
+		max_value = GV.sonicMaxHP
+		value = GV.sonicHP
 	if GV.activeCharacter == \"tails\":
-		max_value = GV.tailsMaxHealth
-		value = GV.tailsHealth
+		max_value = GV.tailsMaxHP
+		value = GV.tailsHP
 "
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l12hq"]

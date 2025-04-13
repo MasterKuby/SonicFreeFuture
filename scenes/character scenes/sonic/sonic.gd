@@ -2,7 +2,6 @@ extends CharacterBody2D
 
 @onready var sprite = $AnimatedSprite2D
 @onready var dashingTimer = $"Double Tap Dash Timer"
-
 @export var phantomCamera: Node2D
 
 var character = "sonic"
@@ -13,7 +12,6 @@ var JUMP_VELOCITY: float = -250.0
 var dashed: bool = false
 var direction: int = 1
 var jumping: bool = false
-
 
 func _physics_process(delta):
 	debugModeCheck(delta)
