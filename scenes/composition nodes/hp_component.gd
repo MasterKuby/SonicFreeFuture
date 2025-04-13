@@ -1,8 +1,10 @@
+@icon("res://assets/custom/node icons/Pixel Boy's Icons/HPComponent.png") # Credit to https://pixel-boy.itch.io/icon-godot-node for custom node icons (thanks alot!!!)
 extends Node2D
 class_name HPComponent
 
 @export var HP : float
 @export var maxHP : float
+
 
 
 func _ready():
