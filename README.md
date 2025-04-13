@@ -1,5 +1,7 @@
 # Sonic: Free Future
 
+![Ass Cheeks Sonic Free Future Logo](https://cdn.discordapp.com/attachments/1286044162092826768/1361004841920364725/Sonic_Free_Future.png?ex=67fd2e08&is=67fbdc88&hm=4dc28111146db57972b99192c8cafd044a73968ab957fc4fe1446397c703d278&)
+
 Sonic fan game featuring real-time, turn-based and other types of combat. Made in Godot 4. Not ANYWHERE near playable or complete yet.
 
 # Credits
