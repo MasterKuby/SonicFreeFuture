@@ -833,10 +833,7 @@ script/source = "extends State
 @onready var sprite = $\"../../AnimatedSprite2D\"
 
 func enter():
-	if sonic.is_on_floor() and  sonic.direction == 0:
-		if sprite.animation != \"idle\" and !Input.is_action_pressed(\"w\") and sprite.animation != \"sliding\":
-			sprite.animation = \"idle\"
-			sprite.play()
+	stopping()
 
 func exit():
 	pass
@@ -849,7 +846,7 @@ func physicsUpdate(delta):
 		sonic.dashed = false
 	stopping(delta)
 	if sonic.is_on_floor() and sonic.direction == 0:
-		if sprite.animation != \"idle\" and !Input.is_action_pressed(\"w\") and sprite.animation != \"sliding\":
+		if sprite.animation != \"idle\" and !Input.is_action_pressed(\"w\") and sprite.animation != \"stopping\":
 			sprite.animation = \"idle\"
 			sprite.play()
 			sonic.dashed = false
@@ -867,11 +864,8 @@ func movingCheck(delta):
 		transitioned.emit(self, \"moving\")
 
 func stopping(delta):
-	if abs(sonic.velocity.x) > 10*sonic.scale.x:
+	if abs(sonic.velocity.x) > 10 and sprite.animation != \"sliding\":
 		sprite.animation = \"sliding\"
-		sprite.play()
-	else:
-		sprite.animation = \"idle\"
 		sprite.play()
 	
 		
