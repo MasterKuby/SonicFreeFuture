@@ -34,4 +34,4 @@ func _process(delta):
 		
 
 # Later, when component is used for mobs, check if parent is in mob group and if 
-# so then call death() function when HP is at or below 0 so the mob can die!
+# so then call death() function when HP is at or below 0 so the mob can die! Death function is in the root node's script.
