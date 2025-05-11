@@ -27,8 +27,8 @@ func directionAndDashed():
 	direction = Input.get_axis("a", "d") # set direction
 	if not GV.activeCharacter == character:
 		direction = 0
-	elif dashed == false:
-		velocity.x = lerp(velocity.x, 0.0, 0.1) # slow down when have no direction
+	elif dashed == false and !direction:
+		velocity.x = lerp(velocity.x, 0.0, 0.05) # put same logic in moving state and add the stopping animation to play when this happen
 	elif dashed == true:
 		velocity.x = lerp(velocity.x, 0.0, 0.1)
 
