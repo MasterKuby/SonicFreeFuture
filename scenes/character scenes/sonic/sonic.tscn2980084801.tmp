@@ -798,7 +798,6 @@ height = 32.0
 
 [sub_resource type="GDScript" id="GDScript_2rf57"]
 script/source = "extends State
-@onready var stateMachine = $\"..\"
 
 @onready var sonic = $\"../..\"
 @onready var sprite = $\"../../AnimatedSprite2D\"
