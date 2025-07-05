@@ -833,9 +833,10 @@ script/source = "extends State
 @onready var sprite = $\"../../AnimatedSprite2D\"
 
 func enter():
-	sprite.animation = \"idle\"
-	sprite.play()
-	sonic.dashed = false
+	if sonic.is_on_floor() and sonic.direction == 0:
+		if sprite.animation != \"idle\" and !Input.is_action_pressed(\"w\") and sprite.animation != \"sliding\":
+			sprite.animation = \"idle\"
+			sprite.play()
 
 func exit():
 	pass
@@ -847,17 +848,14 @@ func physicsUpdate(delta):
 	if sonic.is_on_floor():
 		sonic.dashed = false
 	if sonic.is_on_floor() and sonic.direction == 0:
-		if sprite.animation != \"idle\":
-			if !Input.is_action_pressed(\"w\") and GV.activeCharacter == sonic.character:
-				sprite.animation = \"idle\"
-				sprite.play()
-			if !GV.activeCharacter == sonic.character:
-				sprite.animation = \"idle\"
-				sprite.play()
+		if sprite.animation != \"idle\" and !Input.is_action_pressed(\"w\"):
+			sprite.animation = \"idle\"
+			sprite.play()
+			sonic.dashed = false
 	debugModeCheck()
 	movingCheck()
 	stoppingCheck()
-	jumpingCheck()
+	jumpCheck()
 	fallingCheck()
 	stoppingCheck()
 
@@ -866,18 +864,17 @@ func debugModeCheck(): # later check if this function needs to be in every scrip
 		transitioned.emit(self, \"debug\")
 func movingCheck():
 	if Input.is_action_pressed(\"a\") or Input.is_action_pressed(\"s\") or Input.is_action_pressed(\"d\"):
-		if GV.activeCharacter == sonic.character:
-			transitioned.emit(self, \"moving\")
-	if sonic.direction:
 		transitioned.emit(self, \"moving\")
-func jumpingCheck():
+	if sonic.direction or !sonic.is_on_floor():
+		transitioned.emit(self, \"moving\")
+func jumpCheck():
 	if Input.is_action_pressed(\"w\") and sonic.is_on_floor() and GV.debugMode == false and GV.activeCharacter == sonic.character:
 		transitioned.emit(self, \"jumping\")
 func stoppingCheck():
-	if abs(sonic.velocity.x) > 10*sonic.scale.x and GV.activeCharacter == sonic.character:
+	if abs(sonic.velocity.x) > 10*sonic.scale.x:
 		transitioned.emit(self, \"stopping\")
 func fallingCheck():
-	if !sonic.is_on_floor() and !Input.is_action_pressed(\"w\"):
+	if !sonic.is_on_floor() and !Input.is_action_pressed(\"w\") and sonic.velocity.y:
 		transitioned.emit(self, \"falling\")
 	
 		
@@ -944,8 +941,6 @@ func animationsCheck():
 func stoppingCheck():
 	if sonic.is_on_floor() and !Input.is_action_pressed(\"a\") and !Input.is_action_pressed(\"s\") and !Input.is_action_pressed(\"d\"):
 		transitioned.emit(self, \"stopping\")
-	if GV.activeCharacter != sonic.character:
-		transitioned.emit(self,\"stopping\")
 "
 
 [sub_resource type="GDScript" id="GDScript_ncwik"]
@@ -999,13 +994,15 @@ func update(delta):
 
 func physicsUpdate(delta):
 	debugModeCheck()
-	fallingCheck()
+	applyGravity(delta)
 func debugModeCheck():
 	if GV.debugMode == true and GV.activeCharacter == sonic.character:
 		transitioned.emit(self, \"debug\")
+func applyGravity(delta):
+	if not sonic.is_on_floor() and GV.debugMode == false:
+		sonic.velocity += sonic.get_gravity() * delta / 2*sonic.scale.x
 func fallingCheck():
-	if abs(sonic.velocity.x) < 200:
-		transitioned.emit(self, \"falling\")
+	pass
 "
 
 [sub_resource type="GDScript" id="GDScript_pwyer"]
@@ -1034,7 +1031,6 @@ func physicsUpdate(delta):
 	applyGravity(delta)
 	movement()
 	movingCheck()
-	fallingCheck()
 func airDashCheck():
 	if Input.is_action_just_pressed(\"a\") and GV.activeCharacter == sonic.character:
 		if sonic.dashed == false and !dashingTimer.is_stopped() and !sonic.is_on_floor():
@@ -1059,9 +1055,6 @@ func movement():
 func movingCheck():
 	if !Input.is_action_pressed(\"w\") and sonic.is_on_floor() and GV.debugMode == false and GV.activeCharacter == sonic.character:
 		transitioned.emit(self, \"moving\")
-func fallingCheck():
-	if sonic.velocity.y > 1:
-		transitioned.emit(self, \"falling\")
 "
 
 [sub_resource type="GDScript" id="GDScript_boa22"]
@@ -1094,28 +1087,24 @@ func physicsUpdate(delta):
 	movement()
 	movingCheck()
 func airDashCheck():
-	if GV.activeCharacter == sonic.character:
-		if Input.is_action_just_pressed(\"a\"):
-			if sonic.dashed == false and !dashingTimer.is_stopped() and !sonic.is_on_floor():
-				transitioned.emit(self, \"airdash\")
-			if sonic.dashed == false:
-				dashingTimer.start()
-		if Input.is_action_just_pressed(\"d\"):
-			if sonic.dashed == false and !dashingTimer.is_stopped() and !sonic.is_on_floor():
-				transitioned.emit(self, \"airdash\")
-			if sonic.dashed == false:
-				dashingTimer.start()
+	if Input.is_action_just_pressed(\"a\") and GV.activeCharacter == sonic.character:
+		if sonic.dashed == false and !dashingTimer.is_stopped() and !sonic.is_on_floor():
+			transitioned.emit(self, \"airdash\")
+		if sonic.dashed == false:
+			dashingTimer.start()
+	if Input.is_action_just_pressed(\"d\") and GV.activeCharacter == sonic.character:
+		if sonic.dashed == false and !dashingTimer.is_stopped() and !sonic.is_on_floor():
+			transitioned.emit(self, \"airdash\")
+		if sonic.dashed == false:
+			dashingTimer.start()
 
 func jumpingCheck():
 	if Input.is_action_pressed(\"w\") and sonic.is_on_floor() and GV.debugMode == false and GV.activeCharacter == sonic.character:
 		transitioned.emit(self, \"jumping\")
 
 func movingCheck():
-	if sonic.is_on_floor() and GV.debugMode == false:
-		if !Input.is_action_pressed(\"w\") and GV.activeCharacter == sonic.character:
-			transitioned.emit(self, \"moving\")
-		if !GV.activeCharacter == sonic.character:
-			transitioned.emit(self, \"moving\")
+	if !Input.is_action_pressed(\"w\") and sonic.is_on_floor() and GV.debugMode == false and GV.activeCharacter == sonic.character:
+		transitioned.emit(self, \"moving\")
 
 func debugModeCheck(): # later check if this function needs to be in every script or if it can just be in sonic script then you call it from here and it still works
 	if GV.debugMode == true and GV.activeCharacter == sonic.character:
@@ -1155,16 +1144,18 @@ func physicsUpdate(delta):
 	fallingCheck()
 
 func fallingCheck():
-	if !sonic.is_on_floor() and !Input.is_action_pressed(\"w\") and GV.activeCharacter == sonic.character:
+	if !sonic.is_on_floor() and !Input.is_action_pressed(\"w\"):
 		transitioned.emit(self, \"falling\")
+
 func jumpCheck():
 	if Input.is_action_pressed(\"w\") and sonic.is_on_floor() and GV.debugMode == false and GV.activeCharacter == sonic.character:
 		transitioned.emit(self, \"jumping\")
 
 func movingCheck():
+	if Input.is_action_pressed(\"a\") or Input.is_action_pressed(\"s\") or Input.is_action_pressed(\"d\"):
+		transitioned.emit(self, \"moving\")
 	if sonic.direction or !sonic.is_on_floor():
-		if GV.activeCharacter == sonic.character:
-			transitioned.emit(self, \"moving\")
+		transitioned.emit(self, \"moving\")
 func debugModeCheck(): # later check if this function needs to be in every script or if it can just be in sonic script then you call it from here and it still works
 	if GV.debugMode == true and GV.activeCharacter == sonic.character:
 		transitioned.emit(self, \"debug\")
@@ -1223,11 +1214,3 @@ metadata/_custom_type_script = "uid://b8mncc66i1a1l"
 [node name="Stopping" type="Node" parent="State Machine"]
 script = SubResource("GDScript_sbemj")
 metadata/_custom_type_script = "uid://b8mncc66i1a1l"
-
-[node name="state" type="Label" parent="."]
-offset_left = -22.0
-offset_top = -30.0
-offset_right = 18.0
-offset_bottom = -7.0
-theme_override_font_sizes/font_size = 10
-text = "State:"

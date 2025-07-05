@@ -18,6 +18,3 @@ Some assets used in this game such as custom sprites, music/sounds, level design
 Don't worry about the "discord_game_sdk_binding_debug.dll" file change - when project is opened the file exists and when closes the file is deleted.
 
 **[Trello Page (Project Management)](https://trello.com/b/tcS7A7ud)**
-
-
-

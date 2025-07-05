@@ -1,0 +1,1 @@
+for state machines, any if statement to do with input js make sure the appropriate activeCharacter checks are done. Later when AI controls non-active characters we need not worry.

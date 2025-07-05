@@ -3,7 +3,9 @@ extends CharacterBody2D
 @onready var sprite = $AnimatedSprite2D
 @onready var dashingTimer = $"Double Tap Dash Timer"
 @export var phantomCamera: Node2D
-@onready var state_machine = $"State Machine"
+@onready var stateMachine = $"State Machine"
+
+@onready var stateLabel = $state
 
 var character = "sonic"
 
@@ -20,16 +22,16 @@ func _physics_process(delta):
 	zIndexSort()
 	quickReset()
 	directionAndDashed()
-	print(state_machine.currentState)
+	stateLabel.text = str(stateMachine.currentState)
 
 
 func directionAndDashed():
 	direction = Input.get_axis("a", "d") # set direction
 	if not GV.activeCharacter == character:
 		direction = 0
-	elif dashed == false and !direction:
+	if dashed == false and !direction:
 		velocity.x = lerp(velocity.x, 0.0, 0.05) # put same logic in moving state and add the stopping animation to play when this happen
-	elif dashed == true:
+	if dashed == true:
 		velocity.x = lerp(velocity.x, 0.0, 0.1)
 
 func spriteAndCameraFlip():
