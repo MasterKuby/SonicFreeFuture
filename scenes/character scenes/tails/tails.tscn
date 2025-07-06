@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://bww3l5hfaq7ty"]
+[gd_scene load_steps=50 format=3 uid="uid://bww3l5hfaq7ty"]
 
 [ext_resource type="PackedScene" uid="uid://ba32q4eh6d7h0" path="res://scenes/utility scenes/timers/Double Tap Dash Timer.tscn" id="1_3v1di"]
 [ext_resource type="Script" uid="uid://dwh2vn1fj3bqo" path="res://scenes/character scenes/tails/tails.gd" id="1_33gqt"]
@@ -39,6 +39,7 @@
 [ext_resource type="Texture2D" uid="uid://8ds66bykt1y4" path="res://assets/sonic battle/tails/tails running/8.png" id="21_832qj"]
 [ext_resource type="Script" uid="uid://c4e1fna20ooxw" path="res://scenes/composition nodes/hp_component.gd" id="38_2ofmi"]
 [ext_resource type="Script" uid="uid://b8g0homsjo5mp" path="res://scenes/composition nodes/hitbox_component.gd" id="39_jy36n"]
+[ext_resource type="Script" uid="uid://dveqrdx0vhjk2" path="res://scenes/scripts/states/state_machine.gd" id="40_x6xji"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_q6asv"]
 animations = [{
@@ -182,13 +183,395 @@ animations = [{
 radius = 15.0
 height = 32.0
 
+[sub_resource type="GDScript" id="GDScript_jy36n"]
+script/source = "extends State
+
+@onready var sprite = $\"../../AnimatedSprite2D\"
+@onready var tails = get_parent().get_parent()
+
+func physicsUpdate(delta):
+	idle()
+	movingCheck()
+	debugModeCheck()
+	fallingCheck()
+	jumpingCheck()
+	flyingCheck()
+
+func debugModeCheck(): # later check if this function needs to be in every script or if it can just be in sonic script then you call it from here and it still works
+	if GV.debugMode == true and GV.activeCharacter == tails.character:
+		transitioned.emit(self, \"debug\")
+
+func movingCheck():
+	if Input.is_action_pressed(\"a\") or Input.is_action_pressed(\"s\") or Input.is_action_pressed(\"d\"):
+		if GV.activeCharacter == tails.character:
+			transitioned.emit(self, \"moving\")
+	if tails.direction:
+		transitioned.emit(self, \"moving\")
+
+func fallingCheck():
+	if !tails.is_on_floor() and !tails.flyingEnabled:
+		transitioned.emit(self, \"falling\")
+	if !tails.is_on_floor() and tails.flyingEnabled:
+		transitioned.emit(self, \"flying\")
+
+func jumpingCheck():
+	if Input.is_action_pressed(\"w\") and tails.is_on_floor() and GV.activeCharacter == tails.character and !tails.flyingEnabled:
+		transitioned.emit(self, \"jumping\")
+
+func flyingCheck():
+	if Input.is_action_pressed(\"w\") and GV.activeCharacter == tails.character and tails.flyingEnabled:
+		transitioned.emit(self, \"flying\")
+	if !tails.is_on_floor() and tails.flyingEnabled:
+		transitioned.emit(self, \"flying\")
+
+func idle():
+	if sprite.animation != \"idle\":
+		if !Input.is_action_pressed(\"w\") and GV.activeCharacter == tails.character:
+			sprite.animation = \"idle\"
+			sprite.play()
+		if GV.activeCharacter != tails.character:
+			sprite.animation = \"idle\"
+			sprite.play()
+		# Reason we do this is so when we are current active character,
+		# we will only idle when not holding W but then when we're not
+		# active our w press wont matter
+"
+
+[sub_resource type="GDScript" id="GDScript_x6xji"]
+script/source = "extends State
+
+@onready var tails = get_parent().get_parent()
+@onready var sprite = $\"../../AnimatedSprite2D\"
+@onready var dashingTimer = $\"../../Double Tap Dash Timer\"
+
+func physicsUpdate(delta):
+	debugModeCheck()
+	applyGravity(delta)
+	flyingCheck()
+	jumpingCheck()
+	fallingCheck()
+	idleCheck()
+	move()
+
+func debugModeCheck():
+	if GV.debugMode == true and GV.activeCharacter == tails.character:
+		transitioned.emit(self, \"debug\")
+
+func applyGravity(delta):
+	if not tails.is_on_floor() and GV.debugMode == false:
+		tails.velocity += (tails.get_gravity() * delta) / 4*tails.scale.x
+	if not tails.is_on_floor() and GV.debugMode == false and tails.flyingEnabled:
+		tails.velocity += (tails.get_gravity() * delta) / 16*tails.scale.x
+
+func flyingCheck():
+	if Input.is_action_pressed(\"w\") and GV.activeCharacter == tails.character and tails.flyingEnabled:
+		transitioned.emit(self, \"flying\")
+
+func jumpingCheck():
+	if Input.is_action_pressed(\"w\") and tails.is_on_floor() and GV.activeCharacter == tails.character and !tails.flyingEnabled:
+		transitioned.emit(self, \"jumping\")
+
+func fallingCheck():
+	if !tails.is_on_floor() and !tails.flyingEnabled:
+		transitioned.emit(self, \"falling\")
+	if !tails.is_on_floor() and tails.flyingEnabled:
+		transitioned.emit(self, \"flying\")
+
+func idleCheck():
+	if tails.is_on_floor() and !Input.is_action_pressed(\"a\") and !Input.is_action_pressed(\"s\") and !Input.is_action_pressed(\"d\"):
+		transitioned.emit(self, \"idle\")
+	if GV.activeCharacter != tails.character:
+		transitioned.emit(self,\"idle\")
+
+func move():
+	if tails.direction:
+		tails.velocity.x = lerp(tails.velocity.x, tails.direction*tails.SPEED*tails.scale.x, 0.025)
+	if sprite.animation != \"run\":
+			if abs(tails.velocity.x) >= 200*tails.scale.x: 
+				sprite.animation = \"run\"
+				sprite.play()
+			if abs(tails.velocity.x) <= 200*tails.scale.x: 
+				sprite.animation = \"run\"
+				sprite.play()
+# We have this abs() stuff for later if theres animation changes for tails' speed. Future prooting :D
+"
+
+[sub_resource type="GDScript" id="GDScript_3lrm4"]
+script/source = "extends State
+
+@onready var tails = get_parent().get_parent()
+
+func physicsUpdate(delta):
+	debugMode()
+
+
+func debugMode():
+	if GV.debugMode == true and GV.activeCharacter == tails.character:
+		if Input.is_action_pressed(\"up\"):
+			tails.velocity.y = 0
+			tails.position.y += -5 * tails.scale.x
+		if Input.is_action_pressed(\"down\"):
+			tails.position.y += 5 * tails.scale.x
+			tails.velocity.y = 0
+		if Input.is_action_pressed(\"left\"):
+			tails.position.x += -5 * tails.scale.x
+		if Input.is_action_pressed(\"right\"):
+			tails.position.x += 5 * tails.scale.x
+	else:
+		transitioned.emit(self, \"idle\")
+"
+
+[sub_resource type="GDScript" id="GDScript_kki6k"]
+script/source = "extends State
+
+@onready var sprite = $\"../../AnimatedSprite2D\"
+@onready var tails = get_parent().get_parent()
+@onready var dashingTimer = $\"../../Double Tap Dash Timer\"
+
+func enter():
+	tails.velocity.y = tails.JUMP_VELOCITY*tails.scale.x
+	if sprite.animation != \"jump\":
+		sprite.animation = \"jump\"
+		sprite.play()
+
+
+func physicsUpdate(delta):
+	debugModeCheck()
+	flyingCheck()
+	fallingCheck()
+	idleCheck()
+	airDashCheck()
+	applyGravity(delta)
+	move()
+	animations()
+
+func debugModeCheck():
+	if GV.debugMode == true and GV.activeCharacter == tails.character:
+		transitioned.emit(self, \"debug\")
+
+func flyingCheck():
+	if Input.is_action_pressed(\"w\") and GV.activeCharacter == tails.character and tails.flyingEnabled:
+		transitioned.emit(self, \"flying\")
+	if !tails.is_on_floor() and tails.flyingEnabled:
+		transitioned.emit(self, \"flying\")
+	
+func fallingCheck():
+	if !tails.is_on_floor() and !tails.flyingEnabled and tails.velocity.y > 1:
+		transitioned.emit(self, \"falling\")
+	if !tails.is_on_floor() and tails.flyingEnabled:
+		transitioned.emit(self, \"flying\")
+
+func idleCheck():
+	if tails.is_on_floor() and !Input.is_action_pressed(\"a\") and !Input.is_action_pressed(\"s\") and !Input.is_action_pressed(\"d\"):
+		transitioned.emit(self, \"idle\")
+	if GV.activeCharacter != tails.character and tails.is_on_floor():
+		transitioned.emit(self, \"idle\")
+
+func airDashCheck():
+	# After double tapped in direction, dash in said locked direction. (locked in player movement script)
+	if Input.is_action_just_pressed(\"a\") and GV.activeCharacter == tails.character:
+		if tails.dashed == false and !dashingTimer.is_stopped() and !tails.is_on_floor():
+			transitioned.emit(self, \"airdash\")
+		if tails.dashed == false:
+			dashingTimer.start()
+	if Input.is_action_just_pressed(\"d\") and GV.activeCharacter == tails.character:
+		if tails.dashed == false and !dashingTimer.is_stopped() and !tails.is_on_floor():
+			transitioned.emit(self, \"airdash\")
+		if tails.dashed == false:
+			dashingTimer.start()
+	if tails.is_on_floor():
+		tails.dashed = false
+
+func applyGravity(delta):
+	if not tails.is_on_floor() and GV.debugMode == false:
+		tails.velocity += (tails.get_gravity() * delta) / 4*tails.scale.x
+	if not tails.is_on_floor() and GV.debugMode == false and tails.flyingEnabled:
+		tails.velocity += (tails.get_gravity() * delta) / 16*tails.scale.x
+
+func move():
+	if tails.direction:
+		tails.velocity.x = lerp(tails.velocity.x, tails.direction*tails.SPEED*tails.scale.x, 0.025)
+
+func animations():
+	if sprite.animation != \"jump\":
+		sprite.animation = \"jump\"
+		sprite.play()
+"
+
+[sub_resource type="GDScript" id="GDScript_fbgj3"]
+script/source = "extends State
+
+@onready var tails = get_parent().get_parent()
+@onready var dashingTimer = $\"../../Double Tap Dash Timer\"
+@onready var sprite = $\"../../AnimatedSprite2D\"
+
+func physicsUpdate(delta):
+	airDashCheck()
+	idleCheck()
+	move()
+	movingCheck()
+	debugModeCheck()
+	flyingCheck()
+	applyGravity(delta)
+	animations()
+
+func airDashCheck():
+	# After double tapped in direction, dash in said locked direction. (locked in player movement script)
+	if Input.is_action_just_pressed(\"a\") and GV.activeCharacter == tails.character:
+		if tails.dashed == false and !dashingTimer.is_stopped() and !tails.is_on_floor():
+			transitioned.emit(self, \"airdash\")
+		if tails.dashed == false:
+			dashingTimer.start()
+	if Input.is_action_just_pressed(\"d\") and GV.activeCharacter == tails.character:
+		if tails.dashed == false and !dashingTimer.is_stopped() and !tails.is_on_floor():
+			transitioned.emit(self, \"airdash\")
+		if tails.dashed == false:
+			dashingTimer.start()
+	if tails.is_on_floor():
+		tails.dashed = false
+
+func idleCheck():
+	if tails.is_on_floor() and !Input.is_action_pressed(\"a\") and !Input.is_action_pressed(\"s\") and !Input.is_action_pressed(\"d\"):
+		transitioned.emit(self, \"idle\")
+	if GV.activeCharacter != tails.character and tails.is_on_floor():
+		transitioned.emit(self, \"idle\")
+
+func move():
+	if tails.direction:
+		tails.velocity.x = lerp(tails.velocity.x, tails.direction*tails.SPEED*tails.scale.x, 0.025)
+
+func movingCheck():
+	if tails.is_on_floor() and tails.direction != 0:
+		transitioned.emit(self, \"moving\")
+
+func debugModeCheck(): # later check if this function needs to be in every script or if it can just be in sonic script then you call it from here and it still works
+	if GV.debugMode == true and GV.activeCharacter == tails.character:
+		transitioned.emit(self, \"debug\")
+
+func flyingCheck():
+	if Input.is_action_pressed(\"w\") and GV.activeCharacter == tails.character and tails.flyingEnabled:
+		tails.velocity.y = tails.JUMP_VELOCITY/3*tails.scale.x
+		transitioned.emit(self, \"flying\")
+	if !tails.is_on_floor() and tails.flyingEnabled and tails.velocity.y < 1 : # the < 1 makes sure we are positive velocity
+		transitioned.emit(self, \"flying\")
+
+func applyGravity(delta):
+	if not tails.is_on_floor() and GV.debugMode == false:
+		tails.velocity += (tails.get_gravity() * delta) / 4*tails.scale.x
+	if not tails.is_on_floor() and GV.debugMode == false and tails.flyingEnabled:
+		tails.velocity += (tails.get_gravity() * delta) / 32*tails.scale.x
+
+func animations():
+	if sprite.animation != \"falling\":
+		sprite.animation = \"falling\"
+		sprite.play()
+"
+
+[sub_resource type="GDScript" id="GDScript_38obh"]
+script/source = "extends State
+
+@onready var tails = get_parent().get_parent()
+@onready var sprite = $\"../../AnimatedSprite2D\"
+
+func enter():
+	tails.dashed = true
+	animations()
+	tails.velocity.y = 0
+	tails.velocity.x += 1000*tails.direction * tails.scale.x # Tails dash is intentionally weaker than Sonic's
+
+func physicsUpdate(delta):
+	fallingCheck()
+	debugModeCheck()
+	animations()
+
+func fallingCheck():
+	if abs(tails.velocity.x) < 100*tails.scale.x:
+		transitioned.emit(self, \"falling\")
+
+func debugModeCheck():
+	if GV.debugMode == true and GV.activeCharacter == tails.character:
+		transitioned.emit(self, \"debug\")
+
+func animations():
+	if sprite.animation != \"dash forward\":
+		sprite.animation = \"dash forward\"
+"
+
+[sub_resource type="GDScript" id="GDScript_5lnh7"]
+script/source = "extends State
+
+@onready var sprite = $\"../../AnimatedSprite2D\"
+@onready var tails = get_parent().get_parent()
+@onready var dashingTimer = $\"../../Double Tap Dash Timer\"
+
+func enter():
+	if tails.is_on_floor():
+		tails.velocity.y = tails.JUMP_VELOCITY/3*tails.scale.x
+	# so that wont immediately go back to idle
+
+func _physics_process(_delta): # we use physics process so that even when state isnt active this works
+	if Input.is_action_just_pressed(\"f\") and GV.activeCharacter == \"tails\": # toggle flying with f key
+		if tails.flyingEnabled:
+			tails.flyingEnabled = false
+		elif !tails.flyingEnabled:
+			tails.flyingEnabled = true
+
+func physicsUpdate(delta):
+	move()
+	fly()
+	idleCheck()
+	fallingCheck()
+	airDashCheck()
+	applyGravity(delta)
+
+func move():
+	if tails.direction:
+		tails.velocity.x = lerp(tails.velocity.x, tails.direction*tails.SPEED*tails.scale.x, 0.025)
+
+func fly():
+	if Input.is_action_just_pressed(\"w\") and GV.debugMode == false and GV.activeCharacter == tails.character and tails.flyingEnabled: #if flying then fly
+		tails.velocity.y = tails.JUMP_VELOCITY/3*tails.scale.x
+	if sprite.animation != \"fly\":
+		sprite.animation = \"fly\"
+		sprite.play()
+
+func idleCheck():
+	if tails.is_on_floor() and tails.direction == 0:
+		transitioned.emit(self, \"idle\")
+
+func fallingCheck():
+	if !tails.is_on_floor() and tails.velocity.y > 1:
+		transitioned.emit(self, \"falling\")
+
+func airDashCheck():
+	# After double tapped in direction, dash in said locked direction. (locked in player movement script)
+	if Input.is_action_just_pressed(\"a\") and GV.activeCharacter == tails.character:
+		if tails.dashed == false and !dashingTimer.is_stopped() and !tails.is_on_floor():
+			transitioned.emit(self, \"airdash\")
+		if tails.dashed == false:
+			dashingTimer.start()
+	if Input.is_action_just_pressed(\"d\") and GV.activeCharacter == tails.character:
+		if tails.dashed == false and !dashingTimer.is_stopped() and !tails.is_on_floor():
+			transitioned.emit(self, \"airdash\")
+		if tails.dashed == false:
+			dashingTimer.start()
+	if tails.is_on_floor():
+		tails.dashed = false
+
+func applyGravity(delta):
+	if not tails.is_on_floor() and GV.debugMode == false:
+		tails.velocity += (tails.get_gravity() * delta) / 4*tails.scale.x
+	if not tails.is_on_floor() and GV.debugMode == false and tails.flyingEnabled:
+		tails.velocity += (tails.get_gravity() * delta) / 32*tails.scale.x
+"
+
 [node name="Tails" type="CharacterBody2D"]
 collision_layer = 4
 script = ExtResource("1_33gqt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_q6asv")
-animation = &"run"
+animation = &"dash forward"
 autoplay = "idle"
 
 [node name="DefaultCollisionShape2D" type="CollisionShape2D" parent="."]
@@ -210,3 +593,43 @@ metadata/_custom_type_script = "uid://b8g0homsjo5mp"
 position = Vector2(2, 1)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_x7f5k")
+
+[node name="state" type="Label" parent="."]
+offset_left = -22.0
+offset_top = -30.0
+offset_right = 18.0
+offset_bottom = -7.0
+theme_override_font_sizes/font_size = 10
+text = "Idle <:1234567890>"
+
+[node name="State Machine" type="Node" parent="." node_paths=PackedStringArray("initialState")]
+script = ExtResource("40_x6xji")
+initialState = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="State Machine"]
+script = SubResource("GDScript_jy36n")
+metadata/_custom_type_script = "uid://b8mncc66i1a1l"
+
+[node name="Moving" type="Node" parent="State Machine"]
+script = SubResource("GDScript_x6xji")
+metadata/_custom_type_script = "uid://b8mncc66i1a1l"
+
+[node name="Debug" type="Node" parent="State Machine"]
+script = SubResource("GDScript_3lrm4")
+metadata/_custom_type_script = "uid://b8mncc66i1a1l"
+
+[node name="Jumping" type="Node" parent="State Machine"]
+script = SubResource("GDScript_kki6k")
+metadata/_custom_type_script = "uid://b8mncc66i1a1l"
+
+[node name="Falling" type="Node" parent="State Machine"]
+script = SubResource("GDScript_fbgj3")
+metadata/_custom_type_script = "uid://b8mncc66i1a1l"
+
+[node name="AirDash" type="Node" parent="State Machine"]
+script = SubResource("GDScript_38obh")
+metadata/_custom_type_script = "uid://b8mncc66i1a1l"
+
+[node name="Flying" type="Node" parent="State Machine"]
+script = SubResource("GDScript_5lnh7")
+metadata/_custom_type_script = "uid://b8mncc66i1a1l"

@@ -29,7 +29,6 @@ func childTransitioned(state, newStateName):
 	var newState = states.get(newStateName.to_lower()) # to_lower() so no skibidi shit happens JS in case
 	if !newState:
 		return
-	
 	if currentState:
 		currentState.exit()
 	newState.enter()

@@ -16,6 +16,7 @@ var dashed: bool = false
 var direction: int = 0
 var jumping: bool = false
 
+
 func _physics_process(delta):
 	spriteAndCameraFlip()
 	move_and_slide()

@@ -877,8 +877,9 @@ func stoppingCheck():
 	if abs(sonic.velocity.x) > 10*sonic.scale.x and GV.activeCharacter == sonic.character:
 		transitioned.emit(self, \"stopping\")
 func fallingCheck():
-	if !sonic.is_on_floor() and !Input.is_action_pressed(\"w\"):
+	if !sonic.is_on_floor():
 		transitioned.emit(self, \"falling\")
+		
 	
 		
 "
@@ -886,19 +887,9 @@ func fallingCheck():
 [sub_resource type="GDScript" id="GDScript_r8wl1"]
 script/source = "extends State
 # We cant directly transition to idle because we must go through stopping first
-@onready var stateMachine = get_parent()
 @onready var sonic = get_parent().get_parent()
 @onready var sprite = $\"../../AnimatedSprite2D\"
 @onready var dashingTimer = $\"../../Double Tap Dash Timer\"
-
-func enter():
-	pass
-
-func exit():
-	pass
-
-func update(delta):
-	pass
 
 func physicsUpdate(delta):
 	animationsCheck()
@@ -1148,6 +1139,7 @@ func physicsUpdate(delta):
 		sprite.animation = \"sliding\"
 		sprite.play()
 	else:
+		sonic.velocity.x = 0
 		transitioned.emit(self, \"idle\")
 	debugModeCheck()
 	movingCheck()
