@@ -24,7 +24,7 @@ func _physics_process(delta):
 	move_and_slide()
 	zIndexSort()
 	quickReset()
-	stateLabel.text = str(stateMachine.currentState)
+	allDebuggingChecks()
 
 func directionAndDashed():
 	direction = Input.get_axis("a", "d") # set direction
@@ -49,3 +49,11 @@ func zIndexSort():
 func quickReset():
 	if Input.is_action_pressed("reset"):
 		get_tree().reload_current_scene()
+
+func allDebuggingChecks():
+	if GV.debugLabels == true: 
+		stateLabel.text = str(stateMachine.currentState)
+		if !stateLabel.visible:
+			stateLabel.show()
+	else: 
+		stateLabel.hide()

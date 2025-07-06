@@ -16,14 +16,13 @@ var dashed: bool = false
 var direction: int = 0
 var jumping: bool = false
 
-
 func _physics_process(delta):
 	spriteAndCameraFlip()
 	move_and_slide()
 	zIndexSort()
 	quickReset()
 	directionAndDashed()
-	stateLabel.text = str(stateMachine.currentState)
+	allDebuggingChecks()
 
 
 func directionAndDashed():
@@ -52,3 +51,11 @@ func zIndexSort():
 func quickReset():
 	if Input.is_action_pressed("reset"):
 		get_tree().reload_current_scene()
+
+func allDebuggingChecks():
+	if GV.debugLabels == true: 
+		stateLabel.text = str(stateMachine.currentState)
+		if !stateLabel.visible:
+			stateLabel.show()
+	else: 
+		stateLabel.hide()
