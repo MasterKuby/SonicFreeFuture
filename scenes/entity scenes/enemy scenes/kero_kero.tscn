@@ -1,0 +1,74 @@
+[gd_scene load_steps=11 format=3 uid="uid://c0t03ycabrrn1"]
+
+[ext_resource type="Script" uid="uid://b8g0homsjo5mp" path="res://scenes/composition nodes/hitbox_component.gd" id="1_lxvqg"]
+[ext_resource type="Script" uid="uid://c8au23ypsx3n5" path="res://scenes/entity scenes/enemy scenes/kero_kero.gd" id="1_wqxuc"]
+[ext_resource type="Script" uid="uid://c4e1fna20ooxw" path="res://scenes/composition nodes/hp_component.gd" id="2_wqxuc"]
+[ext_resource type="Texture2D" uid="uid://bahe2nj85fx1s" path="res://assets/sonic advance 1 2 3/badniks/kerokero/0.png" id="3_eapxl"]
+[ext_resource type="Texture2D" uid="uid://bbjqa5a5lra7m" path="res://assets/sonic advance 1 2 3/badniks/kerokero/5.png" id="4_x3j4u"]
+[ext_resource type="Texture2D" uid="uid://dv2voxv426b2u" path="res://assets/sonic advance 1 2 3/badniks/kerokero/4.png" id="5_jaq21"]
+[ext_resource type="Texture2D" uid="uid://cedm0xvavvkvx" path="res://assets/sonic advance 1 2 3/badniks/kerokero/2.png" id="6_iebr6"]
+[ext_resource type="Texture2D" uid="uid://cjl0ihxf223r8" path="res://assets/sonic advance 1 2 3/badniks/kerokero/3.png" id="7_rpumh"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lxvqg"]
+height = 28.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tfou8"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("3_eapxl")
+}, {
+"duration": 0.2,
+"texture": ExtResource("4_x3j4u")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_jaq21")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_x3j4u")
+}],
+"loop": true,
+"name": &"idle2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_iebr6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_rpumh")
+}],
+"loop": true,
+"name": &"jumping",
+"speed": 5.0
+}]
+
+[node name="Kero Kero" type="CharacterBody2D"]
+collision_layer = 8
+script = ExtResource("1_wqxuc")
+
+[node name="HitboxComponent" type="Area2D" parent="."]
+script = ExtResource("1_lxvqg")
+metadata/_custom_type_script = "uid://b8g0homsjo5mp"
+
+[node name="DefaultCollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+scale = Vector2(1.08273, 1)
+shape = SubResource("CapsuleShape2D_lxvqg")
+
+[node name="HPComponent" type="Node2D" parent="."]
+script = ExtResource("2_wqxuc")
+metadata/_custom_type_script = "uid://c4e1fna20ooxw"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_tfou8")
+animation = &"idle"
+frame_progress = 0.304778
+
+[node name="DefaultCollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.08273, 1)
+shape = SubResource("CapsuleShape2D_lxvqg")

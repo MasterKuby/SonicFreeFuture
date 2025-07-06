@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=4 uid="uid://bt4qc5vx4me5k"]
+[gd_scene load_steps=7 format=4 uid="uid://bt4qc5vx4me5k"]
 
-[ext_resource type="PackedScene" uid="uid://vrsayoueuck6" path="res://scenes/character scenes/sonic/sonic.tscn" id="1_p52fl"]
+[ext_resource type="PackedScene" uid="uid://vrsayoueuck6" path="res://scenes/entity scenes/character scenes/sonic/sonic.tscn" id="1_p52fl"]
 [ext_resource type="PackedScene" uid="uid://coq0npqfs2csg" path="res://scenes/utility scenes/camera/master_camera.tscn" id="4_dd0aw"]
 [ext_resource type="PackedScene" uid="uid://c0kgl36am3ae" path="res://scenes/world scenes/TileMapLayer/TileMapLayer.tscn" id="5_rq4r5"]
-[ext_resource type="PackedScene" uid="uid://bww3l5hfaq7ty" path="res://scenes/character scenes/tails/tails.tscn" id="9_ouuth"]
+[ext_resource type="PackedScene" uid="uid://c0t03ycabrrn1" path="res://scenes/entity scenes/enemy scenes/kero_kero.tscn" id="6_c6ms8"]
+[ext_resource type="PackedScene" uid="uid://bww3l5hfaq7ty" path="res://scenes/entity scenes/character scenes/tails/tails.tscn" id="9_ouuth"]
 [ext_resource type="PackedScene" uid="uid://dvksx4vumfsf" path="res://scenes/ui scenes/GUI/gui.tscn" id="10_dyd48"]
 
 [node name="World 1" type="Node2D"]
@@ -59,5 +60,9 @@ and press A to run left"
 [node name="TileMapLayer" parent="." instance=ExtResource("5_rq4r5")]
 scale = Vector2(2, 2)
 tile_map_data = PackedByteArray("AAD+/wAAAAADAAkAAAD//wAAAAADAAkAAAAAAAAAAAADAAkAAAABAAAAAAADAAkAAAACAAAAAAADAAkAAAADAAAAAAADAAkAAAAEAAAAAAADAAkAAAAFAAAAAAADAAkAAAAGAAAAAAADAAkAAAAHAAAAAAADAAkAAAAIAAAAAAADAAkAAAAJAAAAAAADAAkAAAAKAAAAAAADAAkAAAALAAAAAAADAAkAAAAUAAEAAAAEAAkAAAATAAEAAAADAAkAAAARAAEAAAACAAkAAAASAAEAAAADAAkAAAAMAAAAAAADAAkAAAANAAAAAAADAAkAAAAOAAAAAAAEAAkAAAAPAAEAAAACAAkAAAAQAAEAAAAEAAkAAAD9/wAAAAADAAkAAAD8/wAAAAADAAkAAAD7/wAAAAADAAkAAAD6/wAAAAADAAkAAAD5/wAAAAADAAkAAAD4/wAAAAADAAkAAAD3/wAAAAADAAkAAAD2/wAAAAADAAkAAAD1/wAAAAADAAkAAAD0/wAAAAADAAkAAADz/wAAAAADAAkAAADy/wAAAAADAAkAAADx/wAAAAADAAkAAADw/wAAAAADAAkAAADv/wAAAAADAAkAAADu/wAAAAADAAkAAADt/wAAAAADAAkAAADs/wAAAAADAAkAAADr/wAAAAADAAkAAADq/wAAAAADAAkAAADp/wAAAAADAAkAAADo/wAAAAACAAkAAAA=")
+
+[node name="Kero Kero" parent="." instance=ExtResource("6_c6ms8")]
+position = Vector2(169, -144)
+scale = Vector2(2, 2)
 
 [editable path="Master Camera"]

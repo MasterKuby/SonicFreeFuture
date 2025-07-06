@@ -1,7 +1,7 @@
-[gd_scene load_steps=183 format=3 uid="uid://vrsayoueuck6"]
+[gd_scene load_steps=184 format=3 uid="uid://vrsayoueuck6"]
 
 [ext_resource type="Texture2D" uid="uid://ch6873y1h4n3d" path="res://assets/sonic battle/sonic/sonic idle/0.png" id="1_nar73"]
-[ext_resource type="Script" uid="uid://bfakgewysax5j" path="res://scenes/character scenes/sonic/sonic.gd" id="1_uhmdp"]
+[ext_resource type="Script" uid="uid://bfakgewysax5j" path="res://scenes/entity scenes/character scenes/sonic/sonic.gd" id="1_uhmdp"]
 [ext_resource type="Texture2D" uid="uid://b2f2o4wcq0swk" path="res://assets/sonic battle/sonic/sonic rocket air kick/0.png" id="2_m2igl"]
 [ext_resource type="Texture2D" uid="uid://dtlyhgfblayph" path="res://assets/sonic battle/sonic/sonic idle/1.png" id="2_mgyy1"]
 [ext_resource type="Texture2D" uid="uid://slq6gnvbxy8f" path="res://assets/sonic battle/sonic/sonic rocket air kick/1.png" id="3_78l7x"]
@@ -173,6 +173,7 @@
 [ext_resource type="Script" uid="uid://c4e1fna20ooxw" path="res://scenes/composition nodes/hp_component.gd" id="165_hs1xv"]
 [ext_resource type="Script" uid="uid://b8g0homsjo5mp" path="res://scenes/composition nodes/hitbox_component.gd" id="166_7wjwh"]
 [ext_resource type="Script" uid="uid://dveqrdx0vhjk2" path="res://scenes/scripts/states/state_machine.gd" id="167_2rf57"]
+[ext_resource type="Script" uid="uid://b8mncc66i1a1l" path="res://scenes/scripts/states/State.gd" id="174_boa22"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g4hnk"]
 animations = [{
@@ -1162,13 +1163,13 @@ func debugModeCheck(): # later check if this function needs to be in every scrip
 		transitioned.emit(self, \"debug\")
 "
 
-[node name="Sonic" type="CharacterBody2D"]
+[node name="Sonic" type="CharacterBody2D" groups=["Character"]]
 collision_layer = 4
 script = ExtResource("1_uhmdp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_g4hnk")
-animation = &"idle"
+animation = &"hit"
 autoplay = "idle"
 
 [node name="DefaultCollisionShape2D" type="CollisionShape2D" parent="."]
@@ -1214,6 +1215,10 @@ metadata/_custom_type_script = "uid://b8mncc66i1a1l"
 
 [node name="Stopping" type="Node" parent="State Machine"]
 script = SubResource("GDScript_sbemj")
+metadata/_custom_type_script = "uid://b8mncc66i1a1l"
+
+[node name="Hurt" type="Node" parent="State Machine"]
+script = ExtResource("174_boa22")
 metadata/_custom_type_script = "uid://b8mncc66i1a1l"
 
 [node name="state" type="Label" parent="."]

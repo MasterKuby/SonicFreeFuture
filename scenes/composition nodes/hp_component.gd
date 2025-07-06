@@ -8,10 +8,11 @@ class_name HPComponent
 
 
 func _ready():
-	if get_parent().character == "sonic": # If parent is sonic
-		HP = GV.sonicHP
-	if get_parent().character == "tails":
-		HP = GV.tailsHP
+	if get_parent().is_in_group("Character"):
+		if get_parent().character == "sonic": # If parent is sonic
+			HP = GV.sonicHP
+		if get_parent().character == "tails":
+			HP = GV.tailsHP
 
 func takeDamage(damage):
 	HP -= damage

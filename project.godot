@@ -37,6 +37,10 @@ window/vsync/vsync_mode=0
 
 enabled=PackedStringArray("res://addons/discord-rpc-gd/plugin.cfg", "res://addons/limbo_console/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
 
+[global_group]
+
+Character=""
+
 [gui]
 
 timers/tooltip_delay_sec=0.1
@@ -127,6 +131,7 @@ limbo_console_toggle={
 2d_physics/layer_1="Terrain"
 2d_physics/layer_2="Background"
 2d_physics/layer_3="Characters"
+2d_physics/layer_4="Enemies"
 
 [physics]
 
