@@ -23,11 +23,7 @@ phantomCamera = NodePath("../Master Camera/PhantomCamera")
 [node name="Master Camera" parent="." instance=ExtResource("4_dd0aw")]
 
 [node name="Game Camera" parent="Master Camera" index="0"]
-physics_interpolation_mode = 1
-position = Vector2(179.762, 160.685)
-zoom = Vector2(1.94672, 1.94672)
-process_callback = 0
-editor_draw_limits = true
+zoom = Vector2(2, 2)
 
 [node name="CameraController" parent="Master Camera" index="1" node_paths=PackedStringArray("sonic", "tails")]
 sonic = NodePath("../../Sonic")

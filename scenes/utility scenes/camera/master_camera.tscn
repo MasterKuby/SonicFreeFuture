@@ -12,6 +12,7 @@ position = Vector2(200, 180)
 scale = Vector2(1, 1)
 zoom = Vector2(6, 6)
 process_callback = 1
+editor_draw_limits = true
 
 [node name="CameraController" parent="." node_paths=PackedStringArray("phantomCamera") instance=ExtResource("2_r65lw")]
 phantomCamera = NodePath("../PhantomCamera")
