@@ -406,6 +406,7 @@ script/source = "extends State
 @onready var sprite = $\"../../AnimatedSprite2D\"
 
 func physicsUpdate(delta):
+	jumpingCheck()
 	airDashCheck()
 	idleCheck()
 	move()
@@ -441,8 +442,8 @@ func move():
 		tails.velocity.x = lerp(tails.velocity.x, tails.direction*tails.SPEED*tails.scale.x, 0.025)
 
 func movingCheck():
-	if tails.is_on_floor() and tails.direction != 0:
-		transitioned.emit(self, \"moving\")
+	if tails.is_on_floor() and tails.direction != 0 and !Input.is_action_pressed(\"w\"):
+			transitioned.emit(self, \"moving\")
 
 func debugModeCheck(): # later check if this function needs to be in every script or if it can just be in sonic script then you call it from here and it still works
 	if GV.debugMode == true and GV.activeCharacter == tails.character:
@@ -465,6 +466,10 @@ func animations():
 	if sprite.animation != \"falling\":
 		sprite.animation = \"falling\"
 		sprite.play()
+
+func jumpingCheck():
+	if tails.is_on_floor() and Input.is_action_pressed(\"w\"):
+			transitioned.emit(self, \"jumping\")
 "
 
 [sub_resource type="GDScript" id="GDScript_38obh"]

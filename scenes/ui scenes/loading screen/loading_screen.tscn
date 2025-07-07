@@ -1,7 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://d38rxuupkv2wn"]
+[gd_scene load_steps=9 format=3 uid="uid://d38rxuupkv2wn"]
 
 [ext_resource type="Script" uid="uid://cc85b5e80e1dy" path="res://scenes/ui scenes/loading screen/loading_screen.gd" id="1_7a3du"]
 [ext_resource type="Texture2D" uid="uid://cpeopsh6his5n" path="res://Sonic Free Future.png" id="2_kbu3b"]
+[ext_resource type="FontFile" uid="uid://d0himrrfmo8rw" path="res://assets/fonts/Comic Sans MS.ttf" id="3_6ywki"]
+[ext_resource type="StyleBox" uid="uid://bnmk0ug8dy1dk" path="res://assets/tres/buttons/button-hover.tres" id="4_v102c"]
+[ext_resource type="StyleBox" uid="uid://c1lvkim3hx1ac" path="res://assets/tres/buttons/button-disabled.tres" id="5_5vxhe"]
+[ext_resource type="StyleBox" uid="uid://ccklq6jjabqq2" path="res://assets/tres/buttons/button.tres" id="6_f3uoj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t5xaq"]
 bg_color = Color(0.455527, 0.584522, 0.924096, 1)
@@ -56,3 +60,26 @@ grow_vertical = 2
 [node name="Splash" type="Sprite2D" parent="Splash Screen Centre-er"]
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("2_kbu3b")
+
+[node name="Skip" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -161.0
+offset_top = -56.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_6ywki")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = ExtResource("4_v102c")
+theme_override_styles/disabled = ExtResource("5_5vxhe")
+theme_override_styles/hover_pressed = ExtResource("4_v102c")
+theme_override_styles/hover = ExtResource("4_v102c")
+theme_override_styles/pressed = ExtResource("4_v102c")
+theme_override_styles/normal = ExtResource("6_f3uoj")
+text = ">>> Skip >>>"
+
+[connection signal="pressed" from="Skip" to="." method="_on_skip_pressed"]

@@ -1,12 +1,16 @@
 extends Control
 @onready var hoverSFX = $hoverSFX
+@onready var settingsMenu = $"Settings Menu"
+@onready var menuButtons = $"Menu Buttons"
+
+func _physics_process(_delta):
+	escPressed()
 
 func center_window():
 	DisplayServer.window_set_position(Vector2i((DisplayServer.screen_get_size().x - DisplayServer.window_get_size().x)/2,(DisplayServer.screen_get_size().y - DisplayServer.window_get_size().y)/2))
 
 func _on_play_pressed():
 	get_tree().change_scene_to_file("res://scenes/world scenes/world_1.tscn")
-
 
 func _on_quit_pressed():
 	get_tree().quit()
@@ -24,8 +28,16 @@ func _on_eleven_fifty_two_six_forty_eight_pressed():
 	center_window()
 
 func _on_settings_pressed():
-	pass
+	menuButtons.hide()
+	settingsMenu.appear()
 
 func hovered():
 	if hoverSFX.playing: pass
 	else: hoverSFX.play()
+
+func escPressed():
+	if Input.is_action_just_pressed("esc"):
+		if settingsMenu.visible:
+			settingsMenu.disappear()
+			settingsMenu.hide()
+			menuButtons.show()

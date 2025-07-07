@@ -22,6 +22,7 @@ config/icon="res://Sonic Free Future.png"
 
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
 GV="*res://scenes/scripts/GV.gd"
+GlobalSettings="*res://scenes/scripts/GlobalSettings.gd"
 LimboConsole="*res://addons/limbo_console/limbo_console.gd"
 DiscordRPCLoader="*res://addons/discord-rpc-gd/nodes/discord_autoload.gd"
 

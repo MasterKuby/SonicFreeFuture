@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cccvvm7ikul2e"]
+[gd_scene load_steps=7 format=3 uid="uid://cccvvm7ikul2e"]
 
 [ext_resource type="Script" uid="uid://cbq6iy27hhjar" path="res://scenes/ui scenes/main menu/main_menu.gd" id="1_3kebp"]
+[ext_resource type="PackedScene" uid="uid://dddybrl6ypqqa" path="res://scenes/ui scenes/settings menu/settings_menu.tscn" id="2_4lm3j"]
 [ext_resource type="AudioStream" uid="uid://cfbvibujdsmi1" path="res://assets/sounds/ui/main menu/hoverSFX.ogg" id="2_tjq3j"]
 [ext_resource type="StyleBox" uid="uid://ccklq6jjabqq2" path="res://assets/tres/buttons/button.tres" id="3_eqqcm"]
 [ext_resource type="StyleBox" uid="uid://c1lvkim3hx1ac" path="res://assets/tres/buttons/button-disabled.tres" id="3_ibxfk"]
@@ -17,7 +18,11 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_3kebp")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="Settings Menu" parent="." node_paths=PackedStringArray("mainMenu") instance=ExtResource("2_4lm3j")]
+layout_mode = 1
+mainMenu = NodePath("..")
+
+[node name="Menu Buttons" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -32,7 +37,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 50
 
-[node name="Play" type="Button" parent="VBoxContainer"]
+[node name="Play" type="Button" parent="Menu Buttons"]
 custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
@@ -44,7 +49,7 @@ theme_override_styles/pressed = ExtResource("3_eqqcm")
 theme_override_styles/normal = ExtResource("3_eqqcm")
 text = "Play"
 
-[node name="Quit" type="Button" parent="VBoxContainer"]
+[node name="Quit" type="Button" parent="Menu Buttons"]
 custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
@@ -56,7 +61,7 @@ theme_override_styles/pressed = ExtResource("3_eqqcm")
 theme_override_styles/normal = ExtResource("3_eqqcm")
 text = "Quit"
 
-[node name="Settings" type="Button" parent="VBoxContainer"]
+[node name="Settings" type="Button" parent="Menu Buttons"]
 custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
@@ -68,7 +73,7 @@ theme_override_styles/pressed = ExtResource("3_eqqcm")
 theme_override_styles/normal = ExtResource("3_eqqcm")
 text = "Settings"
 
-[node name="1080P" type="Button" parent="VBoxContainer"]
+[node name="1080P" type="Button" parent="Menu Buttons"]
 custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
@@ -80,7 +85,7 @@ theme_override_styles/pressed = ExtResource("3_eqqcm")
 theme_override_styles/normal = ExtResource("3_eqqcm")
 text = "1080p Resolution"
 
-[node name="720P" type="Button" parent="VBoxContainer"]
+[node name="720P" type="Button" parent="Menu Buttons"]
 custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
@@ -92,7 +97,7 @@ theme_override_styles/pressed = ExtResource("3_eqqcm")
 theme_override_styles/normal = ExtResource("3_eqqcm")
 text = "720p Resolution"
 
-[node name="1152x648" type="Button" parent="VBoxContainer"]
+[node name="1152x648" type="Button" parent="Menu Buttons"]
 custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
@@ -108,15 +113,15 @@ text = "1152x648 Resolution"
 stream = ExtResource("2_tjq3j")
 volume_db = 1.0
 
-[connection signal="mouse_entered" from="VBoxContainer/Play" to="." method="hovered"]
-[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
-[connection signal="mouse_entered" from="VBoxContainer/Quit" to="." method="hovered"]
-[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
-[connection signal="mouse_entered" from="VBoxContainer/Settings" to="." method="hovered"]
-[connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_settings_pressed"]
-[connection signal="mouse_entered" from="VBoxContainer/1080P" to="." method="hovered"]
-[connection signal="pressed" from="VBoxContainer/1080P" to="." method="_on_ten_eighty_p_pressed"]
-[connection signal="mouse_entered" from="VBoxContainer/720P" to="." method="hovered"]
-[connection signal="pressed" from="VBoxContainer/720P" to="." method="_on_seven_twenty_p_pressed"]
-[connection signal="mouse_entered" from="VBoxContainer/1152x648" to="." method="hovered"]
-[connection signal="pressed" from="VBoxContainer/1152x648" to="." method="_on_eleven_fifty_two_six_forty_eight_pressed"]
+[connection signal="mouse_entered" from="Menu Buttons/Play" to="." method="hovered"]
+[connection signal="pressed" from="Menu Buttons/Play" to="." method="_on_play_pressed"]
+[connection signal="mouse_entered" from="Menu Buttons/Quit" to="." method="hovered"]
+[connection signal="pressed" from="Menu Buttons/Quit" to="." method="_on_quit_pressed"]
+[connection signal="mouse_entered" from="Menu Buttons/Settings" to="." method="hovered"]
+[connection signal="pressed" from="Menu Buttons/Settings" to="." method="_on_settings_pressed"]
+[connection signal="mouse_entered" from="Menu Buttons/1080P" to="." method="hovered"]
+[connection signal="pressed" from="Menu Buttons/1080P" to="." method="_on_ten_eighty_p_pressed"]
+[connection signal="mouse_entered" from="Menu Buttons/720P" to="." method="hovered"]
+[connection signal="pressed" from="Menu Buttons/720P" to="." method="_on_seven_twenty_p_pressed"]
+[connection signal="mouse_entered" from="Menu Buttons/1152x648" to="." method="hovered"]
+[connection signal="pressed" from="Menu Buttons/1152x648" to="." method="_on_eleven_fifty_two_six_forty_eight_pressed"]

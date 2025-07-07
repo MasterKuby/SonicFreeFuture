@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://w6ornk46pr7b"]
+[gd_scene load_steps=13 format=3 uid="uid://w6ornk46pr7b"]
 
 [ext_resource type="Shader" uid="uid://4uub8lq7c4my" path="res://scenes/ui scenes/pause menu/pause_menu.gdshader" id="1_8nvtu"]
 [ext_resource type="Script" uid="uid://eouq0a7tculh" path="res://scenes/ui scenes/pause menu/pause_menu.gd" id="1_cwv66"]
@@ -13,6 +13,34 @@ shader = ExtResource("1_8nvtu")
 shader_parameter/lod = 0.0
 
 [sub_resource type="Animation" id="Animation_ubgno"]
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Back:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SubMenu Tabs:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_u717h"]
+resource_name = "blur and fade"
 length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -38,10 +66,33 @@ tracks/1/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Back:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SubMenu Tabs:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
 
-[sub_resource type="Animation" id="Animation_u717h"]
-resource_name = "blur and fade"
-length = 0.3
+[sub_resource type="Animation" id="Animation_1gm4j"]
+resource_name = "blur and fade pause menu"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -52,7 +103,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0.0, 0.8]
+"values": [0.0, 1.5]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -70,7 +121,8 @@ tracks/1/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rufxp"]
 _data = {
 &"RESET": SubResource("Animation_ubgno"),
-&"blur and fade": SubResource("Animation_u717h")
+&"blur and fade": SubResource("Animation_u717h"),
+&"blur and fade pause menu": SubResource("Animation_1gm4j")
 }
 
 [node name="Pause Menu" type="Control"]
@@ -99,6 +151,7 @@ offset_right = 2500.0
 offset_bottom = 2500.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 modulate = Color(1, 1, 1, 0)
@@ -109,12 +162,13 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -256.0
-offset_top = -256.0
+offset_top = -300.0
 offset_right = 256.0
-offset_bottom = 256.0
+offset_bottom = 300.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = ExtResource("3_7mfgx")
+metadata/_edit_use_anchors_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
 layout_mode = 2
@@ -147,6 +201,18 @@ theme_override_styles/pressed = ExtResource("4_j4rqu")
 theme_override_styles/normal = ExtResource("4_j4rqu")
 text = "Restart"
 
+[node name="Settings" type="Button" parent="PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(325, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = ExtResource("4_j4rqu")
+theme_override_styles/disabled = ExtResource("3_cptoo")
+theme_override_styles/hover_pressed = ExtResource("6_q6s1y")
+theme_override_styles/hover = ExtResource("6_q6s1y")
+theme_override_styles/pressed = ExtResource("4_j4rqu")
+theme_override_styles/normal = ExtResource("4_j4rqu")
+text = "Settings"
+
 [node name="Main Menu" type="Button" parent="PanelContainer/VBoxContainer"]
 custom_minimum_size = Vector2(325, 0)
 layout_mode = 2
@@ -161,7 +227,7 @@ text = "Main Menu"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_rufxp")
+&"": SubResource("AnimationLibrary_rufxp")
 }
 
 [node name="hoverSFX" type="AudioStreamPlayer" parent="."]
@@ -171,5 +237,6 @@ stream = ExtResource("3_r0q0j")
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="mouse_entered" from="PanelContainer/VBoxContainer/Restart" to="." method="hovered"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
 [connection signal="mouse_entered" from="PanelContainer/VBoxContainer/Main Menu" to="." method="hovered"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Main Menu" to="." method="_on_main_menu_pressed"]

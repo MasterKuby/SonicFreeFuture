@@ -14,3 +14,7 @@ func _process(delta):
 		bigstep = 0
 		var tween = create_tween()
 		tween.tween_property(loadingBar, "value", loadingBar.value + 250, 1.5)  # Moves over 0.5 seconds
+
+
+func _on_skip_pressed():
+	get_tree().change_scene_to_file("res://scenes/ui scenes/main menu/main_menu.tscn")

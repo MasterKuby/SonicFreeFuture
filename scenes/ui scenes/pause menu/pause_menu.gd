@@ -2,17 +2,19 @@ extends Control
 
 @onready var animationPlayer = $AnimationPlayer
 @onready var hoverSFX = $hoverSFX
+@export var settingsSubMenu: Control
 
 func _ready():
 	hide()
-	LimboConsole.enabled = true
 
 
 func _process(delta):
 	escPressed()
 
 func resume():
-	animationPlayer.play_backwards("blur and fade")
+	if visible:
+		animationPlayer.play_backwards("blur and fade pause menu")
+	settingsSubMenu.disappear()
 	get_tree().paused = false
 	await(animationPlayer.animation_finished)
 	hide()
@@ -20,14 +22,13 @@ func resume():
 
 func pause():
 	show()
-	animationPlayer.play("blur and fade")
+	animationPlayer.play("blur and fade pause menu")
 	get_tree().paused = true
 	LimboConsole.enabled = false
 
 func escPressed():
 	if Input.is_action_just_pressed("esc") and !get_tree().paused: pause()
 	elif Input.is_action_just_pressed("esc") and get_tree().paused: resume()
-	if get_tree().paused: show()
 
 func _on_resume_pressed():
 	if get_tree().paused:
@@ -35,7 +36,7 @@ func _on_resume_pressed():
 
 func _on_restart_pressed():
 	if get_tree().paused:
-		resume() 
+		resume()
 		get_tree().reload_current_scene()
 
 func _on_main_menu_pressed():
@@ -46,3 +47,8 @@ func _on_main_menu_pressed():
 func hovered():
 	if hoverSFX.playing: pass
 	else: hoverSFX.play()
+
+func _on_settings_pressed():
+	animationPlayer.play_backwards("blur and fade pause menu")
+	hide()
+	settingsSubMenu.appear()
